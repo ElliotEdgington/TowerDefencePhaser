@@ -3,13 +3,21 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Tower Defence</title>
-        <link rel="shortcut icon" href="favicon.ico">
-		<script type="text/javascript" src="js/boot.js"></script>
-		<script type="text/javascript" src="js/preload.js"></script>
-        <script type="text/javascript" src="js/main_menu.js"></script>
+        
+        <link rel="icon" href="/assets/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <!-- include the states -->
+		<script type="text/javascript" src="js/states/boot.js"></script>
+		<script type="text/javascript" src="js/states/preload.js"></script>
+        <script type="text/javascript" src="js/states/main_menu.js"></script>
+        <script type="text/javascript" src="js/states/game.js"></script>
         <script type="text/javascript" src="libs/phaser.js"></script>
-
-
+        
+        <!-- include the prefabs -->
+        <script type="text/javascript" src="js/prefabs/player.js"></script>
+        <script type="text/javascript" src="js/prefabs/bullet.js"></script>
+        <script type="text/javascript" src="js/prefabs/tower.js"></script>
+        <script type="text/javascript" src="js/prefabs/basic_tower.js"></script>
 
 
 	</head>
@@ -17,6 +25,6 @@
 	<body>  
 		<!-- include the main game file
         This creates the phaser game and states-->
-		<script src="js/main.js"></script>
+		<script src="js/states/main.js"></script>
 	</body>
 </html>
