@@ -21,7 +21,17 @@ Botan.Preload.prototype = {
         // spritesheet -- _sheet
         // tilemap     -- _tmap
         
-        this.load.image('basic_tower_spr','../../assets/towers/basic_tower_img.png');       this.load.image('bullet_spr','../../assets/towers/bullet_img.png');
+        this.load.image('basic_tower_spr','../../assets/towers/basic_tower_img.png');
+        this.load.image('bullet_spr','../../assets/towers/bullet_img.png');
+        this.load.image('temp_title','../../assets/menu_assets/temp_title.png');
+        this.load.image('temp_ghost', '../../assets/menu_assets/temp_ghost.png');
+        this.load.image('temp_button', '../../assets/menu_assets/temp_button.png');
+        this.load.image('level_1', '../../assets/menu_assets/level1.png');
+        this.load.image('level_2', '../../assets/menu_assets/level2.png');
+        this.load.image('level_3', '../../assets/menu_assets/level3.png');
+        this.load.image('mute_button', '../../assets/mute_button.png');
+        this.load.image('muteon_button', '../../assets/muteon_button.png');
+        this.load.image('pause_button', '../../assets/pause_button.png');
 
         
         
@@ -33,4 +43,4 @@ Botan.Preload.prototype = {
         this.game.state.start('MainMenu');
     }
 
-}
+};

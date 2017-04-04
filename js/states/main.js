@@ -19,6 +19,7 @@ Botan.game = new Phaser.Game(GAMEWIDTH, GAMEHEIGHT, Phaser.AUTO, GAMETITLE);
 Botan.game.state.add('Boot', Botan.Boot);
 Botan.game.state.add('Preload', Botan.Preload);
 Botan.game.state.add('MainMenu', Botan.MainMenu);
+Botan.game.state.add('LevelSelect', Botan.LevelSelect);
 
 //Main Game state - may split into different states if different modes are added
 // i.e endless mode
