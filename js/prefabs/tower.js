@@ -3,8 +3,9 @@
 
 var Botan = Botan || {};
 
-Botan.Tower = function(x, y, spr_name){
-    Phaser.Sprite.call(this, Botan.game, x, y, spr_name);
+Botan.Tower = function(game, x, y, spr_name){
+    Phaser.Sprite.call(this, game, x, y, spr_name);
+    this.game = game;
 };
 
 Botan.Tower.prototype = Object.create(Phaser.Sprite.prototype);
@@ -16,7 +17,7 @@ Botan.Tower.prototype.constructor = Botan.Tower;
 Botan.Tower.prototype.createBullet = function(){
     //check bullet group to see if there are any dead bullets
     
-    var bullet = Botan.tower_bullet_grp.getFirstDead();
+    var bullet = this.game.tower_bullet_grp.getFirstDead();
     //see if a dead bullet was found
     if(bullet){
         bullet.revive();
@@ -24,9 +25,9 @@ Botan.Tower.prototype.createBullet = function(){
         bullet.y = this.y;
     }else{
         //create bullet
-        bullet = Botan.game.add.existing(new Botan.Bullet(this.x, this.y, 'bullet_spr'));
+        bullet = this.game.add.existing(new Botan.Bullet(this.game,this.x, this.y, 'bullet_spr'));
         //add bullet to the group
-        Botan.tower_bullet_grp.add(bullet);
+        this.game.tower_bullet_grp.add(bullet);
     }
     //return bullet to be used
     return bullet;

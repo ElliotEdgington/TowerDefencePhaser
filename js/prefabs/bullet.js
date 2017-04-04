@@ -5,21 +5,35 @@
 
 var Botan = Botan || {};
 
-Botan.Bullet = function(x, y, bullet_spr){
-    Phaser.Sprite.call(this, Botan.game, x, y, bullet_spr);
+Botan.Bullet = function(game, x, y, bullet_spr){
+    Phaser.Sprite.call(this, game, x, y, bullet_spr);
+    
+    this.game.physics.enable(this, Phaser.Physics.ARCADE);
     //default properties
-    this.speedX = 1;
-    this.speedY = 1;
+    this.speed = 100;
+    
 };
 
 Botan.Bullet.prototype = Object.create(Phaser.Sprite.prototype);
 Botan.Bullet.prototype.constructor = Botan.Bullet; 
 
 Botan.Bullet.prototype.update = function(){
-    this.x += this.speedX;
-    this.y += this.speedY;
+    if(this.target){
+        this.game.physics.arcade.moveToObject(this, this.target,this.speed);
+    }
+    else if(this.direction){
+        this.game.physics.arcade.moveToXY(this, this.direction.x, this.direction.y, this.speed);
+    }
     
     if(this.y >= 500){
         this.kill();
     }
-}
+};
+
+Botan.Bullet.prototype.setTarget = function(target){
+    this.target = target;
+};
+
+Botan.Bullet.prototype.setDirection = function(x, y){    
+    this.direction = new Phaser.Point(x, y);
+};

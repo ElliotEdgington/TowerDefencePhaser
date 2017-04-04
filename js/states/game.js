@@ -25,11 +25,11 @@ Botan.Game.prototype = {
         // create groups 
         // groups are stored in the game object so all objects
         // can use them
-        Botan.tower_bullet_grp = this.game.add.group(); 
+        this.tower_bullet_grp = this.game.add.group(); 
         
         // create objects
-        this.player_obj = this.game.add.existing(new Botan.Player());
-        this.testTower = this.game.add.existing(new Botan.BasicTower());
+        this.player_obj = this.game.add.existing(new Botan.Player(this));
+        this.testTower = this.game.add.existing(new Botan.BasicTower(this));
         
     }
 };

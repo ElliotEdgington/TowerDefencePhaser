@@ -1,4 +1,5 @@
 // Preload loads all assets to use during the game,
+
 // Also displays loading screen using assets loaded from boot.js
 
 var Botan = Botan || {}
@@ -33,4 +34,4 @@ Botan.Preload.prototype = {
         this.game.state.start('MainMenu');
     }
 
-}
+};

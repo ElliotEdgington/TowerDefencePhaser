@@ -19,6 +19,8 @@ Botan.Boot.prototype = {
     
     //scale manager / alignment / systems
     create: function(){
+    
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
         
         
         // starts the Preload state

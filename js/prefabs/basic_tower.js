@@ -2,11 +2,11 @@
 
 var Botan = Botan || {};
 
-Botan.BasicTower = function(){
+Botan.BasicTower = function(game){
     var spr = 'basic_tower_spr';
     var x = 100;
     var y = 100;
-    Botan.Tower.call(this, x, y, spr);
+    Botan.Tower.call(this, game, x, y, spr);
     
     //create unique properties for the tower.
     this.delay = 1;
