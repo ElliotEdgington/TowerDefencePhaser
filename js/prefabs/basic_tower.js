@@ -3,7 +3,7 @@
 var Botan = Botan || {};
 
 Botan.BasicTower = function(){
-    var spr = 'tower_spr';
+    var spr = 'basic_tower_spr';
     var x = 100;
     var y = 100;
     Botan.Tower.call(this, x, y, spr);

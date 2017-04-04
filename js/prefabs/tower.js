@@ -24,7 +24,7 @@ Botan.Tower.prototype.createBullet = function(){
         bullet.y = this.y;
     }else{
         //create bullet
-        bullet = Botan.game.add.existing(new Botan.Bullet(this.x, this.y, 'spr'));
+        bullet = Botan.game.add.existing(new Botan.Bullet(this.x, this.y, 'bullet_spr'));
         //add bullet to the group
         Botan.tower_bullet_grp.add(bullet);
     }

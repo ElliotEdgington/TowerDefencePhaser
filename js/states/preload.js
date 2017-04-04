@@ -21,6 +21,9 @@ Botan.Preload.prototype = {
         // spritesheet -- _sheet
         // tilemap     -- _tmap
         
+        this.load.image('basic_tower_spr','../../assets/towers/basic_tower_img.png');       this.load.image('bullet_spr','../../assets/towers/bullet_img.png');
+
+        
         
     },
     

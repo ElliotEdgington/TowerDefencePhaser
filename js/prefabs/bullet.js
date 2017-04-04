@@ -10,7 +10,6 @@ Botan.Bullet = function(x, y, bullet_spr){
     //default properties
     this.speedX = 1;
     this.speedY = 1;
-    
 };
 
 Botan.Bullet.prototype = Object.create(Phaser.Sprite.prototype);
