@@ -11,9 +11,12 @@ Botan.Player = function(game){
     var x = GAMEWIDTH/2;
     var y = GAMEHEIGHT/2
     Phaser.Sprite.call(this, game, x, y, 'player_spr');
+    this.game = game;
     
     //activate systems and edit sprite info.
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
+    
+    this.game.camera.follow(this);
     //input keys
     wKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.W);
     aKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.A);
@@ -35,6 +38,9 @@ Botan.Player.prototype.update = function(){
 };
 
 Botan.Player.prototype.input = function(){    
+    //mouse click fire
+    
+    
     //keyboard movement
     // up down
     if(wKey.isDown || cursorKeys.up.isDown){
@@ -59,4 +65,8 @@ Botan.Player.prototype.input = function(){
     if((!dKey.isDown && !cursorKeys.right.isDown) && (!aKey.isDown && !cursorKeys.left.isDown)){
         this.body.velocity.x = 0;
     }
+};
+
+Botan.Player.prototype.fire = function(){
+  // use arcade physcis to shoot bullet toward cursor.  
 };

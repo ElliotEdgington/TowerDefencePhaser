@@ -22,6 +22,24 @@ Botan.Game.prototype = {
     
     //Uses all the game assets and prefabs to create the game.
     create: function(){
+        
+        // -- Maybe abrstact this into different js file --
+        // Load in tiled level from JSON file
+        
+        // Size of json file
+        this.game.world.setBounds(0, 0, 1920, 1920);
+        
+        this.map = this.game.add.tilemap('level1_tmap');
+        this.map.addTilesetImage('Tileset', 'level_tset');
+        
+        this.layer = this.map.createLayer('Ground');
+        
+        // Nodes will be stored in array
+        
+        
+        this.nodes = [this.game.add.existing(new Botan.Waypoint(this, 100, 200)),
+                     this.game.add.existing(new Botan.Waypoint(this, 300,300))];
+        
         // create groups 
         // groups are stored in the game object so all objects
         // can use them
@@ -31,5 +49,7 @@ Botan.Game.prototype = {
         this.player_obj = this.game.add.existing(new Botan.Player(this));
         this.testTower = this.game.add.existing(new Botan.BasicTower(this));
         
+        
+        this.enemy_obj = this.game.add.existing(new Botan.Enemy(this, 0, 0, 'spr'));
     }
 };
