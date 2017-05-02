@@ -6,10 +6,10 @@ var Botan = Botan || {};
 var wKey, sKey, aKey, dKey;
 var cursorKeys;
 
-Botan.Player = function(game){
+Botan.Player = function (game) {
     //arbritary placement
-    var x = GAMEWIDTH/2;
-    var y = GAMEHEIGHT/2
+    var x = GAMEWIDTH / 2.5;
+    var y = GAMEHEIGHT / 2.5;
     Phaser.Sprite.call(this, game, x, y, 'player_spr');
     this.game = game;
     
@@ -24,10 +24,10 @@ Botan.Player = function(game){
     dKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.D);
     
     //UP DOWN LEFT RIGHT Keys in an object
-    cursorKeys = Botan.game.input.keyboard.createCursorKeys()
+    cursorKeys = Botan.game.input.keyboard.createCursorKeys();
     
     //set variables for player
-    this.speed = 100;
+    this.speed = 200;
 };
 
 Botan.Player.prototype = Object.create(Phaser.Sprite.prototype);
