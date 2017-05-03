@@ -28,4 +28,5 @@ Botan.BasicTower.prototype.fire = function(){
     //get bullet to be fired
     var bullet = this.createBullet();
     //change its properties if they're wrong
+    
 };

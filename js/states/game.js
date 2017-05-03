@@ -56,5 +56,7 @@ Botan.Game.prototype = {
         
         
         this.enemy_obj = this.game.add.existing(new Botan.Enemy(this, 0, 0, 'spr'));
+//        this.enemy_obj2 = this.game.add.existing(new Botan.GhostEnemy(this, 0, 0, 'spr'));
+//        this.enemy_obj3 = this.game.add.existing(new Botan.SkullEnemy(this, 0, 0, 'spr'));
     }
 };
