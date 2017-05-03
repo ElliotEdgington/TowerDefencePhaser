@@ -5,8 +5,8 @@
 
 var Botan = Botan || {};
 
-Botan.Bullet = function(game, x, y, bullet_spr){
-    Phaser.Sprite.call(this, Botan.game, x, y, bullet_spr);
+Botan.CandyCornBullet = function(game, x, y, candycorn_bullet_spr){
+    Phaser.Sprite.call(this, Botan.game, x, y, candycorn_bullet_spr);
     
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
     //default properties
@@ -14,10 +14,10 @@ Botan.Bullet = function(game, x, y, bullet_spr){
     
 };
 
-Botan.Bullet.prototype = Object.create(Phaser.Sprite.prototype);
-Botan.Bullet.prototype.constructor = Botan.Bullet; 
+Botan.CandyCornBullet.prototype = Object.create(Phaser.Sprite.prototype);
+Botan.CandyCornBullet.prototype.constructor = Botan.CandyCornBullet; 
 
-Botan.Bullet.prototype.update = function(){
+Botan.CandyCornBullet.prototype.update = function(){
     if(this.target){
         this.game.physics.arcade.moveToObject(this, this.target,this.speed);
     }
@@ -30,10 +30,10 @@ Botan.Bullet.prototype.update = function(){
     }
 };
 
-Botan.Bullet.prototype.setTarget = function(target){
+Botan.CandyCornBullet.prototype.setTarget = function(target){
     this.target = target;
 };
 
-Botan.Bullet.prototype.setDirection = function(x, y){    
+Botan.CandyCornBullet.prototype.setDirection = function(x, y){    
     this.direction = new Phaser.Point(x, y);
 };

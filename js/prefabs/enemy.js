@@ -3,7 +3,7 @@
 var Botan = Botan || {};
 
 Botan.Enemy = function(game, x, y, spr_name){
-    Phaser.Sprite.call(this, game, x, y, spr_name);
+    Phaser.Sprite.call(this, Botan.game, x, y, spr_name);
     this.game = game;
     // Enabling systems
     this.game.physics.enable(this, Phaser.Physics.ARCADE);

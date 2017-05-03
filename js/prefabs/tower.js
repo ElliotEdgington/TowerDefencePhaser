@@ -4,7 +4,7 @@
 var Botan = Botan || {};
 
 Botan.Tower = function(game, x, y, spr_name){
-    Phaser.Sprite.call(this, game, x, y, spr_name);
+    Phaser.Sprite.call(this, Botan.game, x, y, spr_name);
     this.game = game;
 };
 
