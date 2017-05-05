@@ -32,4 +32,8 @@ Botan.GumDropTower.prototype.fire = function(){
     //get bullet to be fired
     var bullet = this.createBullet();
     //change its properties if they're wrong
+    if(bullet){
+        bullet.loadTexture('gumdrop_bullet_spr');
+    }
+    
 };

@@ -8,8 +8,8 @@ var cursorKeys;
 
 Botan.Player = function (game) {
     //arbritary placement
-    var x = GAMEWIDTH / 2.5;
-    var y = GAMEHEIGHT / 2.5;
+    var x = 500;
+    var y = 800
     Phaser.Sprite.call(this, Botan.game, x, y, 'player_spr');
     this.game = game;
     

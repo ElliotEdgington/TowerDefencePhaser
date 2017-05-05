@@ -33,5 +33,7 @@ Botan.CandyCornTower.prototype.fire = function(){
     //get bullet to be fired
     var bullet = this.createBullet();
     //change its properties if they're wrong
-    bullet.Sprite = "candycorn_bullet_spr";
+    if(bullet){
+        bullet.loadTexture('candycorn_bullet_spr');
+    }
 };

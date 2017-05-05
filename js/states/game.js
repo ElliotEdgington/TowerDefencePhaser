@@ -28,35 +28,49 @@ Botan.Game.prototype = {
         // Load in tiled level from JSON file
         
         // Size of json file
-        this.game.world.setBounds(0, 0, 1920, 1920);
+        //this.game.world.setBounds(0, 0, 1920, 1920);
         
         this.map = this.game.add.tilemap('level1_tmap');
         this.map.addTilesetImage('Tileset', 'level_tset');
         
         this.layer = this.map.createLayer('Ground');
+        this.layer.resizeWorld();
+    
         
         // Nodes will be stored in array
+        this.nodes = [];
+        this.nodes_layer = this.map.createLayer('Direction');
+        this.nodes_layer.visible = false;
+
+        //getting nodes from layer in JSON file
+        this.node_num = 0;
+        var num_of_nodes = 9;
+        while(this.node_num <= num_of_nodes){
+            this.node_num++;
+            this.map.forEach(function(tile){
+                if(tile.index == this.node_num){
+                    this.nodes.push(new Botan.Waypoint(this, (tile.x * this.map.tileWidth) + this.map.tileWidth/2, 
+                                                       (tile.y * this.map.tileHeight) + this.map.tileHeight/2));
+                }
+            }, this, 0, 0, this.map.width, this.map.height, this.nodes_layer);
+        }
         
-        
-        this.nodes = [this.game.add.existing(new Botan.Waypoint(this, 100, 200)),
-                     this.game.add.existing(new Botan.Waypoint(this, 300,300))];
         
         // create groups 
         // groups are stored in the game object so all objects
         // can use them
         this.tower_bullet_grp = this.game.add.group(); 
+        this.enemy_grp = this.game.add.group();
         
         // create objects
         this.player_obj = this.game.add.existing(new Botan.Player(this));
 
-        this.testTower = this.game.add.existing(new Botan.BasicTower(this));
         this.testTower2 = this.game.add.existing(new Botan.CandyCornTower(this));
         this.testTower3 = this.game.add.existing(new Botan.GumDropTower(this));
         this.testTower4 = this.game.add.existing(new Botan.PoloTower(this));
+                
         
-        
-        this.enemy_obj = this.game.add.existing(new Botan.Enemy(this, 0, 0, 'spr'));
-//        this.enemy_obj2 = this.game.add.existing(new Botan.GhostEnemy(this, 0, 0, 'spr'));
-//        this.enemy_obj3 = this.game.add.existing(new Botan.SkullEnemy(this, 0, 0, 'spr'));
+        this.enemy_grp.add(this.game.add.existing(new Botan.GhostEnemy(this, 400, 0)));
+        this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy(this, 400, -100)));
     }
 };
