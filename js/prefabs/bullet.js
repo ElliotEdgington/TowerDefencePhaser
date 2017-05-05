@@ -6,7 +6,7 @@
 var Botan = Botan || {};
 
 Botan.Bullet = function(game, x, y, bullet_spr){
-    Phaser.Sprite.call(this, game, x, y, bullet_spr);
+    Phaser.Sprite.call(this, Botan.game, x, y, bullet_spr);
     
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
     //default properties

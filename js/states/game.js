@@ -23,6 +23,7 @@ Botan.Game.prototype = {
     //Uses all the game assets and prefabs to create the game.
     create: function(){
         
+        
         // -- Maybe abrstact this into different js file --
         // Load in tiled level from JSON file
         
@@ -47,9 +48,15 @@ Botan.Game.prototype = {
         
         // create objects
         this.player_obj = this.game.add.existing(new Botan.Player(this));
+
         this.testTower = this.game.add.existing(new Botan.BasicTower(this));
+        this.testTower2 = this.game.add.existing(new Botan.CandyCornTower(this));
+        this.testTower3 = this.game.add.existing(new Botan.GumDropTower(this));
+        this.testTower4 = this.game.add.existing(new Botan.PoloTower(this));
         
         
         this.enemy_obj = this.game.add.existing(new Botan.Enemy(this, 0, 0, 'spr'));
+//        this.enemy_obj2 = this.game.add.existing(new Botan.GhostEnemy(this, 0, 0, 'spr'));
+//        this.enemy_obj3 = this.game.add.existing(new Botan.SkullEnemy(this, 0, 0, 'spr'));
     }
 };

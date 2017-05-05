@@ -21,7 +21,7 @@ Botan.MainMenu.prototype = {
         // x = x pos, y = y pos, image_key = the name you gave the sprite in preload, callback = function called on click
         //callbackContext = leave as is ('this'), all other parameters are optional for rollover, just use id of spritesheet.
         //temp play button for testing
-        this.playButton = this.game.add.button(160, 350, 'temp_button', this.onClickPlayButton, this);
+        this.playButton = this.game.add.button(60, 350, 'temp_button', this.onClickPlayButton, this);
         this.game.add.sprite(70, 140, 'temp_title');
         this.game.add.sprite(610, 70, 'temp_ghost');
     },
