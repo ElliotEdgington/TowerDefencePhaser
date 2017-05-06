@@ -23,6 +23,13 @@ Botan.Preload.prototype = {
         // spritesheet -- _sheet
         // tilemap     -- _tmap
         
+        // title assets
+        this.load.image('title','../../assets/menu_assets/title_spr.png');
+        this.load.image('temp_ghost', '../../assets/menu_assets/temp_ghost.png');
+        this.load.image('button', '../../assets/menu_assets/levelselect_btn.png');
+        this.load.image('menu_bg', '../../assets/menu_assets/titlescreen_background.png')
+        
+        
         // Player
         this.load.spritesheet('player_spr', '../../assets/sprite_sheets/player_spritesheet.png', 128, 128, 16);
         
@@ -60,6 +67,7 @@ Botan.Preload.prototype = {
         this.load.image('mute_button', '../../assets/mute_button.png');
         this.load.image('muteon_button', '../../assets/muteon_button.png');
         this.load.image('pause_button', '../../assets/pause_button.png');
+        this.load.image('play_button', '../../assets/play_button.png');
         
         
         // Selection marker
@@ -71,6 +79,7 @@ Botan.Preload.prototype = {
         this.load.image('temp_title','../../assets/menu_assets/titlescreen.png');
         this.load.image('temp_ghost', '../../assets/menu_assets/temp_ghost.png');
         this.load.image('temp_button', '../../assets/menu_assets/levelselect.png');
+        this.load.audio('bg_music', '../../assets/Temp_music.mp3');
         
         
     },
