@@ -74,3 +74,21 @@ Botan.Game.prototype = {
         this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy(this, 400, -100)));
     }
 };
+
+
+
+
+
+//PAUSE button in progress
+
+//this.pauseButton = this.game.add.
+//this.pauseButton.inputEnabled = true;
+//this.pauseButton.fixedToCamera = true;
+//this.pauseButton.events.onInputUp.add(function() {
+  //  this.game.paused = true;
+    //this.pauseButton = 'play_button';
+//}, this);
+//this.game.input.onDown.add(function() {
+  //  if(this.game.paused) this.game.paused = false;
+    //this.pauseButton = 'pause_button';
+//}, this);
