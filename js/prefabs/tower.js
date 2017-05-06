@@ -7,6 +7,10 @@ Botan.Tower = function(game, x, y, spr_name){
     Phaser.Sprite.call(this, Botan.game, x, y, spr_name);
     this.game = game;
     this.anchor.setTo(0.5, 0.5);
+    
+    //for onclick
+    this.inputEnabled = true;
+    this.events.onInputDown.add(this.clickListener, this);
     //stores enemies in range of fire
     this.in_range = [];
     //default properties
@@ -60,14 +64,20 @@ Botan.Tower.prototype.getTarget = function(){
         this.target = null;
     else
         switch(this.AI){
-            // find furthest enemy forward in range
+            // any enemy
             case 1:
-                this.in_range.forEach(function(enemy){
-                    this.target = enemy;
-                }, this);
+                this.target = this.in_range[0];
                 break;
-
             // find enemy in range with highest health
+            case 2:
+                break;
+            case 3:
+                break;
         }
+};
+
+Botan.Tower.prototype.clickListener = function(){
+    this.game.player_obj.setSelection(this);
+    //bring up info about tower on GUI
 };
 

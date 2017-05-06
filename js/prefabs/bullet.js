@@ -22,7 +22,7 @@ Botan.Bullet.prototype.constructor = Botan.Bullet;
 
 Botan.Bullet.prototype.update = function(){
 
-    if(this.target){
+    if(this.target.exists){
         //move bullet toward the target
         this.game.physics.arcade.moveToObject(this, this.target,this.speed);
         this.rotation = this.game.physics.arcade.angleBetween(this, this.target) - 90;
@@ -31,7 +31,7 @@ Botan.Bullet.prototype.update = function(){
             //kill bullet
             this.kill();
             //remove health from enemy
-            //this.target.health -= this.damage;
+            this.target.health -= this.damage;
         }
     }
     else if(this.direction){

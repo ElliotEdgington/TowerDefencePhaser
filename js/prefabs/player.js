@@ -8,16 +8,15 @@ var cursorKeys;
 
 Botan.Player = function (game) {
     //arbritary placement
-    var x = 500;
-    var y = 800
+    var x = 500, y = 800;
     Phaser.Sprite.call(this, Botan.game, x, y, 'player_spr');
     this.game = game;
     
     //player animations
-    this.animations.add('down', [ 0, 1, 2, 3],7,true);
-    this.animations.add('up', [ 4, 5, 6, 7],7,true);
-    this.animations.add('right', [ 8, 9, 10 ,11],7,true);
-    this.animations.add('left', [ 12, 13, 14, 15],7,true);
+    this.animations.add('down', [ 0, 1, 2, 3], 7, true);
+    this.animations.add('up', [ 4, 5, 6, 7], 7, true);
+    this.animations.add('right', [ 8, 9, 10, 11], 7, true);
+    this.animations.add('left', [ 12, 13, 14, 15], 7, true);
     
     //activate systems and edit sprite info.
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
@@ -32,6 +31,11 @@ Botan.Player = function (game) {
     //UP DOWN LEFT RIGHT Keys in an object
     cursorKeys = Botan.game.input.keyboard.createCursorKeys();
     
+    
+    //for selection of towers starts offscreen
+    this.selection_obj = this.game.add.sprite(-500, -500, 'selection_spr');
+    this.selection_obj.anchor.setTo(0.5, 0.5);
+    this.selection = null;
     //set variables for player
     this.speed = 200;
 };
@@ -39,11 +43,11 @@ Botan.Player = function (game) {
 Botan.Player.prototype = Object.create(Phaser.Sprite.prototype);
 Botan.Player.prototype.constructor = Botan.Player;
 
-Botan.Player.prototype.update = function(){
+Botan.Player.prototype.update = function (){
     this.input();
 };
 
-Botan.Player.prototype.input = function (){ 
+Botan.Player.prototype.input = function  (){ 
     //mouse click fire
     
     
@@ -79,6 +83,12 @@ Botan.Player.prototype.input = function (){
     }
 };
 
+Botan.Player.prototype.setSelection = function(target){
+    this.selection = target;
+    this.selection_obj.x = target.x;
+    this.selection_obj.y = target.y;
+};
+
 Botan.Player.prototype.fire = function(){
-  // use arcade physcis to shoot bullet toward cursor.  
+  // use arcade physics to shoot bullet toward cursor.  
 };

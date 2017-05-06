@@ -27,7 +27,7 @@ Botan.Preload.prototype = {
         this.load.spritesheet('player_spr', '../../assets/sprite_sheets/player_spritesheet.png', 128, 128, 16);
         
         
-        //Enemies
+        // Enemies
         this.load.spritesheet('ghost_spr','../../assets/sprite_sheets/ghost_spritesheet.png', 128, 128, 16);
         this.load.spritesheet('skull_spr','../../assets/sprite_sheets/skull_spritesheet.png', 128, 128, 13);
         
@@ -60,6 +60,11 @@ Botan.Preload.prototype = {
         this.load.image('mute_button', '../../assets/mute_button.png');
         this.load.image('muteon_button', '../../assets/muteon_button.png');
         this.load.image('pause_button', '../../assets/pause_button.png');
+        
+        
+        // Selection marker
+        this.load.image('selection_spr', '../../assets/Towers/selection_marker.png');
+
 
         
         // temp assets
