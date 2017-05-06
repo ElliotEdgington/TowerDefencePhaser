@@ -31,6 +31,7 @@ Botan.MainMenu.prototype = {
         //Audio
         this.music = this.game.add.audio('bg_music');
         this.music.play();
+        this.music.loop = true;
         
         
         //mute button

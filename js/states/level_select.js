@@ -36,12 +36,12 @@ Botan.LevelSelect.prototype = {
     onClickLevel2: function(){
         //switch states to game state + other options
         console.log("clicked");
-        this.game.state.start('Game');
+        this.game.state.start('Level2');
     },
     onClickLevel3: function(){
         //switch states to game state + other options
         console.log("clicked");
-        this.game.state.start('Game');
+        this.game.state.start('Level3');
     },
     onClickLevel4: function(){
         //switch states to game state + other options

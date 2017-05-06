@@ -5,10 +5,10 @@
 var Botan = Botan || {};
 
 
-Botan.Game = function(){};
+Botan.Level3 = function(){};
 
 
-Botan.Game.prototype = {
+Botan.Level3.prototype = {
     
     
     //save this for later to take parameters
@@ -16,7 +16,7 @@ Botan.Game.prototype = {
     
     //Loads any last bits and bobs, save for later
     preload: function(){
-        console.log("Started Game state");
+        console.log("Started Level2 state");
     },
         
     
@@ -28,9 +28,9 @@ Botan.Game.prototype = {
         // Load in tiled level from JSON file
         
         // Size of json file
-        //this.game.world.setBounds(0, 0, 1920, 1920);
+        this.game.world.setBounds(0, 0, 1920, 1920);
         
-        this.map = this.game.add.tilemap('level1_tmap');
+        this.map = this.game.add.tilemap('level3_tmap');
         this.map.addTilesetImage('Tileset', 'level_tset');
         
         this.layer = this.map.createLayer('Ground');
@@ -63,14 +63,27 @@ Botan.Game.prototype = {
         
         // create objects
         this.player_obj = this.game.add.existing(new Botan.Player(this));
-
+        
+        //player placement
+        this.player_obj.x = 300;
+        this.player_obj.y = 200;
+        
+        //test tower placement
         this.testTower2 = this.game.add.existing(new Botan.CandyCornTower(this));
+        this.testTower2.x = 600;
+        this.testTower2.y = 250;
+        
         this.testTower3 = this.game.add.existing(new Botan.GumDropTower(this));
+        this.testTower3.x = 100;
+        this.testTower3.y = 400;
+        
         this.testTower4 = this.game.add.existing(new Botan.PoloTower(this));
+        this.testTower4.x = 600;
+        this.testTower4.y = 550;
                 
         
-        this.enemy_grp.add(this.game.add.existing(new Botan.GhostEnemy(this, 400, 0)));
-        this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy(this, 400, -100)));
+        this.enemy_grp.add(this.game.add.existing(new Botan.GhostEnemy(this, 300, 0)));
+        this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy(this, 300, -200)));
         
         
         

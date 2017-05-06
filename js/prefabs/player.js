@@ -18,10 +18,17 @@ Botan.Player = function (game) {
     this.animations.add('right', [ 8, 9, 10, 11], 7, true);
     this.animations.add('left', [ 12, 13, 14, 15], 7, true);
     
+    //player properties
+    this.gold = 0;
+    
     //activate systems and edit sprite info.
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
     
     this.game.camera.follow(this);
+    
+    this.enableBody = true;
+    this.body.collideWorldBounds=true;
+    
     //input keys
     wKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.W);
     aKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.A);
@@ -37,7 +44,7 @@ Botan.Player = function (game) {
     this.selection_obj.anchor.setTo(0.5, 0.5);
     this.selection = null;
     //set variables for player
-    this.speed = 200;
+    this.speed = 400;
 };
 
 Botan.Player.prototype = Object.create(Phaser.Sprite.prototype);
@@ -49,7 +56,10 @@ Botan.Player.prototype.update = function (){
 
 Botan.Player.prototype.input = function  (){ 
     //mouse click fire
-    
+    if (this.game.input.activePointer.isDown)
+    {
+        Botan.Player.prototype.fire();
+    }
     
     //keyboard movement
     // up down
@@ -90,5 +100,5 @@ Botan.Player.prototype.setSelection = function(target){
 };
 
 Botan.Player.prototype.fire = function(){
-  // use arcade physics to shoot bullet toward cursor.  
+    
 };

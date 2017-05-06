@@ -64,10 +64,12 @@ Botan.Preload.prototype = {
         
         this.game.add.sprite((GAMEWIDTH/2 + 128 * 1), GAMEHEIGHT/2, 'load_spr');        
         // Load Level Tilesets
-        this.load.image('level_tset', '../../assets/level_files/tilesetnew.png');
+        this.load.image('level_tset', '../../assets/level_files/tilesetnew1.png');
         
         // Load JSON Level Files
         this.load.tilemap('level1_tmap', '../../assets/level_files/level1.json', null, Phaser.Tilemap.TILED_JSON);
+         this.load.tilemap('level2_tmap', '../../assets/level_files/level2.json', null, Phaser.Tilemap.TILED_JSON);
+         this.load.tilemap('level3_tmap', '../../assets/level_files/level3.json', null, Phaser.Tilemap.TILED_JSON);
         
         
         this.game.add.sprite((GAMEWIDTH/2 + 128 * 2), GAMEHEIGHT/2, 'load_spr');        
@@ -80,14 +82,15 @@ Botan.Preload.prototype = {
         
         // Selection marker
         this.load.image('selection_spr', '../../assets/Towers/selection_marker.png');
-
-
+        
+        // audio
+        this.load.audio('hit_aud', '../../assets/sound_effects/pumpkin_break_01.ogg');
         
         // temp assets
         this.load.image('temp_title','../../assets/menu_assets/titlescreen.png');
         this.load.image('temp_ghost', '../../assets/menu_assets/temp_ghost.png');
         this.load.image('temp_button', '../../assets/menu_assets/levelselect.png');
-        this.load.audio('bg_music', '../../assets/Temp_music.mp3');
+        this.load.audio('bg_music', '../../assets/bg_music.mp3');
         
         
     },
