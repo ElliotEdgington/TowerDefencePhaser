@@ -13,11 +13,6 @@ Botan.CandyCornTower = function(game){
     
     
     //create unique properties for the tower.
-    this.delay = 1;
-    
-    //maybe change this to a global timer? because many towers.
-    Botan.game.time.events.loop(Phaser.Timer.SECOND, this.fire, this);
-
 };
 
 Botan.CandyCornTower.prototype = Object.create(Botan.Tower.prototype);
@@ -26,6 +21,14 @@ Botan.CandyCornTower.prototype.constructor = Botan.CandyCornTower;
 
 Botan.CandyCornTower.prototype.update = function(){  
     this.animations.play('idle');
+    
+    // fires bullet at intervals of the game timer
+    // any firing logic goes here
+    if((this.game.game_timer % this.fire_rate) == 0){
+    console.log(this.game.game_timer);
+        this.fire();
+    }
+
 };
 
 //this holds all the firing logic

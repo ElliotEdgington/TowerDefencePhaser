@@ -14,6 +14,8 @@ Botan.Boot.prototype = {
     //Loads all assets for loading screen / splash screen
     preload: function(){
         console.log("Started Boot state");
+        
+        this.load.image('load_spr', '../../assets/load_image.png');
     },
     
     

@@ -12,10 +12,6 @@ Botan.GumDropTower = function(game){
     this.animations.add('idle', [ 0, 1, 2, 3, 4, 5, 6],14,true);
     
     //create unique properties for the tower.
-    this.delay = 1;
-    
-    //maybe change this to a global timer? because many towers.
-    Botan.game.time.events.loop(Phaser.Timer.SECOND, this.fire, this);
 
 };
 
@@ -25,6 +21,12 @@ Botan.GumDropTower.prototype.constructor = Botan.GumDropTower;
 
 Botan.GumDropTower.prototype.update = function(){ 
     this.animations.play('idle');
+    
+    // fires bullet at intervals of the game timer
+    // any firing logic goes here
+    if((this.game.game_timer % this.fire_rate) == 0){
+        this.fire();
+    }
 };
 
 //this holds all the firing logic

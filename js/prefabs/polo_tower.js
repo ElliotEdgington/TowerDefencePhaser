@@ -11,13 +11,7 @@ Botan.PoloTower = function(game){
     //tower animations
     this.animations.add('idle', [ 0, 1, 2, 3, 4, 5, 6, 7],8,true);
     
-    
-    //create unique properties for the tower.
-    this.delay = 1;
-    
-    //maybe change this to a global timer? because many towers.
-    Botan.game.time.events.loop(Phaser.Timer.SECOND, this.fire, this);
-
+    //set properties for this tower
 };
 
 Botan.PoloTower.prototype = Object.create(Botan.Tower.prototype);
@@ -26,6 +20,13 @@ Botan.PoloTower.prototype.constructor = Botan.PoloTower;
 
 Botan.PoloTower.prototype.update = function(){  
     this.animations.play('idle');
+    
+    
+    // fires bullet at intervals of the game timer
+    // any firing logic goes here
+    if((this.game.game_timer % this.fire_rate) == 0){
+        this.fire();
+    }
 };
 
 //this holds all the firing logic

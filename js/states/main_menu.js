@@ -51,7 +51,7 @@ Botan.MainMenu.prototype = {
         this.game.state.start('LevelSelect');
     },
     
-     MUTE: function() {
+    MUTE: function() {
         if(!this.game.sound.mute){
         this.game.sound.mute = true;
         this.muteButton = 'muteon_button';
@@ -59,6 +59,7 @@ Botan.MainMenu.prototype = {
         this.game.sound.mute = false;
         this.muteButton = 'mute_button';
        }
+    },
     
     //For debug
     render: function(){}

@@ -1,6 +1,8 @@
 // An object for each tower to inherit off, this will hold behaviours
 // that exist bewtween all towers
 
+// -- DO NOT COPY PASTA INHERIT FROM THIS PLEASE --
+
 var Botan = Botan || {};
 
 Botan.Tower = function(game, x, y, spr_name){
@@ -13,14 +15,18 @@ Botan.Tower = function(game, x, y, spr_name){
     this.events.onInputDown.add(this.clickListener, this);
     //stores enemies in range of fire
     this.in_range = [];
-    //default properties
+    this.AI = 1;
+    
+    // default properties -- All these properties can be changed per tower basis 
+    // in the other tower files.
     this.target = null;
     this.range = 400;
-    this.AI = 1;
+    this.fire_rate = 100;
 };
 
 Botan.Tower.prototype = Object.create(Phaser.Sprite.prototype);
 Botan.Tower.prototype.constructor = Botan.Tower; 
+
 
 // checks if there are any dead bullets that can be revived
 // if not creates a new bullet.

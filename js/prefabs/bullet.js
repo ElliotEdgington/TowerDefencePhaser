@@ -3,6 +3,8 @@
 
 //can be inherited if needed by bullets with unique behaviour
 
+// -- DO NOT COPY PASTA INHERIT FROM THIS PLEASE --
+
 var Botan = Botan || {};
 
 Botan.Bullet = function(game, x, y, bullet_spr){

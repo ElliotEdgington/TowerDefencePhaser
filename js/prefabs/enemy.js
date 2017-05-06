@@ -1,5 +1,7 @@
 // An object for every enemy npc to inherit of off. 
 
+// -- DO NOT COPY PASTA INHERIT FROM THIS PLEASE --
+
 var Botan = Botan || {};
 
 Botan.Enemy = function(game, x, y, spr_name){

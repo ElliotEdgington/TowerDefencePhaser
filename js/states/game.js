@@ -72,6 +72,14 @@ Botan.Game.prototype = {
         
         this.enemy_grp.add(this.game.add.existing(new Botan.GhostEnemy(this, 400, 0)));
         this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy(this, 400, -100)));
+        
+        
+        
+        //Start game timer
+        this.game_timer = 0;
+        Botan.game.time.events.loop(10, function(){
+            this.game_timer++;
+        }, this);
     }
 };
 
