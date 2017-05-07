@@ -19,15 +19,20 @@ Botan.GumDropTower.prototype = Object.create(Botan.Tower.prototype);
 Botan.GumDropTower.prototype.constructor = Botan.GumDropTower;
 
 
+
+
 Botan.GumDropTower.prototype.update = function(){ 
     this.animations.play('idle');
     
     // fires bullet at intervals of the game timer
     // any firing logic goes here
+    this.fire_rate = 250;
     if((this.game.game_timer % this.fire_rate) == 0){
         this.fire();
+         
     }
 };
+
 
 //this holds all the firing logic
 Botan.GumDropTower.prototype.fire = function(){
@@ -36,6 +41,9 @@ Botan.GumDropTower.prototype.fire = function(){
     //change its properties if they're wrong
     if(bullet){
         bullet.loadTexture('gumdrop_bullet_spr');
+        bullet.damage = 3;
     }
     
 };
+
+
