@@ -15,7 +15,8 @@ Botan.Bullet = function(game, x, y, bullet_spr){
     //default properties
     this.target = null;
     this.damage = 1;
-    this.speed = 100;
+    this.speed = 150;
+    
     
 };
 
@@ -28,12 +29,14 @@ Botan.Bullet.prototype.update = function(){
         //move bullet toward the target
         this.game.physics.arcade.moveToObject(this, this.target,this.speed);
         this.rotation = this.game.physics.arcade.angleBetween(this, this.target) - 90;
+        
         //check for collision with the target
         if(this.game.physics.arcade.overlap(this, this.target)){
             //kill bullet
             this.kill();
             //remove health from enemy
             this.target.health -= this.damage;
+              
         }
     }
     else if(this.direction){

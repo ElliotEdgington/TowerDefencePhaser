@@ -30,13 +30,21 @@
         {
          "columns":9,
          "firstgid":1,
+<<<<<<< HEAD
          "image":"tilesetnew1.png",
+=======
+         "image":"..\/..\/..\/tilesetnew.png",
+>>>>>>> bb98ad117f336c2a753be957bf93a998fb83594a
          "imageheight":1152,
          "imagewidth":1152,
          "margin":0,
          "name":"Tileset",
          "spacing":0,
+<<<<<<< HEAD
          "tilecount":81,
+=======
+         "tilecount":100,
+>>>>>>> bb98ad117f336c2a753be957bf93a998fb83594a
          "tileheight":128,
          "tilewidth":128
         }],

@@ -15,7 +15,11 @@ Botan.GhostEnemy = function(game, x, y){
     //setting default stats
     this.health = 10;
     this.speed = 1;
+<<<<<<< HEAD
     this.gold_value = 25;
+=======
+    this.gold_value = 100
+>>>>>>> bb98ad117f336c2a753be957bf93a998fb83594a
     
 };
 

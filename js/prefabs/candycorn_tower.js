@@ -22,6 +22,7 @@ Botan.CandyCornTower.prototype.update = function(){
     
     // fires bullet at intervals of the game timer
     // any firing logic goes here
+    this.fire_rate = 100;
     if((this.game.game_timer % this.fire_rate) == 0){
     console.log(this.game.game_timer);
         this.fire();
@@ -36,6 +37,10 @@ Botan.CandyCornTower.prototype.fire = function(){
     //change its properties if they're wrong
     if(bullet){
         bullet.loadTexture('candycorn_bullet_spr');
+<<<<<<< HEAD
         bullet.damage = 2;
+=======
+        bullet.scale.setTo(0.8);
+>>>>>>> bb98ad117f336c2a753be957bf93a998fb83594a
     }
 };

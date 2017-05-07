@@ -25,7 +25,11 @@ Botan.PoloTower.prototype.update = function(){
     
     // fires bullet at intervals of the game timer
     // any firing logic goes here
+<<<<<<< HEAD
     this.fire_rate = 150;
+=======
+    this.fire_rate = 100;
+>>>>>>> bb98ad117f336c2a753be957bf93a998fb83594a
     if((this.game.game_timer % this.fire_rate) == 0){
         this.fire();
     }
@@ -35,10 +39,21 @@ Botan.PoloTower.prototype.update = function(){
 Botan.PoloTower.prototype.fire = function(){
     //get bullet to be fired
     var bullet = this.createBullet();
+    
     //change its properties if they're wrong
     if(bullet){
         bullet.loadTexture('polo_bullet_spr');
         bullet.damage = 1;
+<<<<<<< HEAD
+=======
+        bullet.scale.setTo(0.8);
+        
+        if(this.game.physics.arcade.overlap(bullet, bullet.target)){
+            //kill bullet
+            bullet.target.speed = 0.1;
+              
+        }
+>>>>>>> bb98ad117f336c2a753be957bf93a998fb83594a
     }
     
 };
