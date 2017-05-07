@@ -12,6 +12,7 @@ Botan.PoloTower = function(game, x, y){
     this.animations.add('idle', [ 0, 1, 2, 3, 4, 5, 6, 7],8,true);
     
     //set properties for this tower
+    this.tower_price = 300;
 };
 
 Botan.PoloTower.prototype = Object.create(Botan.Tower.prototype);
@@ -24,7 +25,7 @@ Botan.PoloTower.prototype.update = function(){
     
     // fires bullet at intervals of the game timer
     // any firing logic goes here
-    this.fire_rate = 200;
+    this.fire_rate = 150;
     if((this.game.game_timer % this.fire_rate) == 0){
         this.fire();
     }

@@ -68,7 +68,8 @@ Botan.Preload.prototype = {
         
         // Load JSON Level Files
         this.load.tilemap('level1_tmap', '../../assets/level_files/level1.json', null, Phaser.Tilemap.TILED_JSON);
-        
+        this.load.tilemap('level2_tmap', '../../assets/level_files/level2.json', null, Phaser.Tilemap.TILED_JSON);
+        this.load.tilemap('level3_tmap', '../../assets/level_files/level3.json', null, Phaser.Tilemap.TILED_JSON);
         
         this.game.add.sprite((GAMEWIDTH/2 + 128 * 2), GAMEHEIGHT/2, 'load_spr');        
         // GUI Buttons
@@ -76,6 +77,14 @@ Botan.Preload.prototype = {
         this.load.image('muteon_button', '../../assets/muteon_button.png');
         this.load.image('pause_button', '../../assets/pause_button.png');
         this.load.image('play_button', '../../assets/play_button.png');
+        //Game GUI Buttons
+        this.load.image('play_button', '../../assets/buttons/candycorn_button.png');
+        this.load.image('play_button', '../../assets/buttons/gumdrop_button.png');
+        this.load.image('play_button', '../../assets/buttons/polo_button.png');
+        this.load.image('play_button', '../../assets/buttons/cancel_button.png');
+        this.load.image('play_button', '../../assets/buttons/buy_button.png');
+        this.load.image('play_button', '../../assets/buttons/shop_button.png');
+        this.load.image('play_button', '../../assets/coin.png');
         
         
         // Selection marker
@@ -94,6 +103,7 @@ Botan.Preload.prototype = {
         this.load.image('temp_button', '../../assets/menu_assets/levelselect.png');
         this.load.audio('bg_music', '../../assets/Temp_music.mp3');
         
+        //buttons
         
     },
     

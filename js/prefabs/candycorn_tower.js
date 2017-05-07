@@ -9,8 +9,8 @@ Botan.CandyCornTower = function(game, x, y){
     //tower animations
     this.animations.add('idle', [ 0, 1, 2, 3, 4, 5, 6, 7],10,true);
     
-    
     //create unique properties for the tower.
+    this.tower_price = 100;
 };
 
 Botan.CandyCornTower.prototype = Object.create(Botan.Tower.prototype);
