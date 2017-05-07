@@ -12,6 +12,7 @@ Botan.PoloTower = function(game, x, y){
     this.animations.add('idle', [ 0, 1, 2, 3, 4, 5, 6, 7],8,true);
     
     //set properties for this tower
+     this.tower_price = 300;
 };
 
 Botan.PoloTower.prototype = Object.create(Botan.Tower.prototype);

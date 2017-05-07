@@ -62,12 +62,13 @@ Botan.Preload.prototype = {
         this.load.image('level_3', '../../assets/menu_assets/level3.png');
         this.load.image('level_4', '../../assets/menu_assets/level4.png');
         
-        this.game.add.sprite((GAMEWIDTH/2 + 128 * 1), GAMEHEIGHT/2, 'load_spr');        
+        this.game.add.sprite((GAMEWIDTH/2 + 128 * 2), GAMEHEIGHT/2, 'load_spr');        
         // Load Level Tilesets
-        this.load.image('level_tset', '../../assets/level_files/tilesetnew.png');
+        this.load.image('level_tset', '../../assets/level_files/tilesetnew1.png');
         
         // Load JSON Level Files
         this.load.tilemap('level1_tmap', '../../assets/level_files/level1.json', null, Phaser.Tilemap.TILED_JSON);
+        
         
         
         this.game.add.sprite((GAMEWIDTH/2 + 128 * 2), GAMEHEIGHT/2, 'load_spr');        
@@ -76,6 +77,14 @@ Botan.Preload.prototype = {
         this.load.image('muteon_button', '../../assets/muteon_button.png');
         this.load.image('pause_button', '../../assets/pause_button.png');
         this.load.image('play_button', '../../assets/play_button.png');
+        
+        //Shop Buttons
+        this.load.image('play_button', '../../assets/buttons/cancel_button.png');
+        this.load.image('play_button', '../../assets/buttons/buy_button.png');
+        this.load.image('play_button', '../../assets/buttons/shop_button.png');
+        this.load.image('play_button', '../../assets/buttons/gumdrop_button.png');
+        this.load.image('play_button', '../../assets/buttons/candycorn_button.png');
+        this.load.image('play_button', '../../assets/buttons/polo_button.png');
         
         
         // Selection marker
@@ -92,7 +101,9 @@ Botan.Preload.prototype = {
         this.load.image('temp_title','../../assets/menu_assets/titlescreen.png');
         this.load.image('temp_ghost', '../../assets/menu_assets/temp_ghost.png');
         this.load.image('temp_button', '../../assets/menu_assets/levelselect.png');
+        this.load.image('play_button', '../../assets/coin.png');
         this.load.audio('bg_music', '../../assets/Temp_music.mp3');
+        
         
         
     },

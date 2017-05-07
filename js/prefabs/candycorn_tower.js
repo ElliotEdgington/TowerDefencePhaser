@@ -11,6 +11,7 @@ Botan.CandyCornTower = function(game, x, y){
     
     
     //create unique properties for the tower.
+    this.tower_price = 100;
 };
 
 Botan.CandyCornTower.prototype = Object.create(Botan.Tower.prototype);

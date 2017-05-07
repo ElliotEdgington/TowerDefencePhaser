@@ -23,6 +23,7 @@ Botan.Tower = function(game, x, y, spr_name){
     this.target = null;
     this.range = 400;
     this.fire_rate = 100;
+    this.tower_price = 10;
 };
 
 Botan.Tower.prototype = Object.create(Phaser.Sprite.prototype);

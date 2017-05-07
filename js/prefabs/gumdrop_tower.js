@@ -12,7 +12,7 @@ Botan.GumDropTower = function(game, x, y){
     this.animations.add('idle', [ 0, 1, 2, 3, 4, 5, 6],14,true);
     
     //create unique properties for the tower.
-
+    this.tower_price = 300;
 };
 
 Botan.GumDropTower.prototype = Object.create(Botan.Tower.prototype);
