@@ -9,8 +9,8 @@ Botan.CandyCornTower = function(game, x, y){
     //tower animations
     this.animations.add('idle', [ 0, 1, 2, 3, 4, 5, 6, 7],10,true);
     
-    
     //create unique properties for the tower.
+    this.tower_price = 100;
 };
 
 Botan.CandyCornTower.prototype = Object.create(Botan.Tower.prototype);
@@ -22,6 +22,7 @@ Botan.CandyCornTower.prototype.update = function(){
     
     // fires bullet at intervals of the game timer
     // any firing logic goes here
+    this.fire_rate = 100;
     if((this.game.game_timer % this.fire_rate) == 0){
     console.log(this.game.game_timer);
         this.fire();
@@ -37,5 +38,6 @@ Botan.CandyCornTower.prototype.fire = function(){
     if(bullet){
         bullet.loadTexture('candycorn_bullet_spr');
         bullet.damage = 2;
+        bullet.scale.setTo(0.8);
     }
 };

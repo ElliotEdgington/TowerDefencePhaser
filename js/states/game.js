@@ -34,7 +34,6 @@ Botan.Game.prototype = {
         this.layer = this.map.createLayer('Ground');
         this.layer.resizeWorld();
     
-        
         // Nodes will be stored in array
         this.nodes = [];
         this.nodes_layer = this.map.createLayer('Direction');
@@ -71,7 +70,8 @@ Botan.Game.prototype = {
         
         this.enemy_grp.add(this.game.add.existing(new Botan.GhostEnemy(this, 400, 0)));
         this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy(this, 400, -100)));
-        
+//        this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy2(this, 400, -300)));
+//        this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy3(this, 400, -500)));
         
         //Game variables -----
         this.gold = 0;

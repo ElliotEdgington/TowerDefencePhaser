@@ -17,7 +17,7 @@ Botan.GameOver.prototype = {
         this.restartButton = this.game.add.button(100, 200, '', this.onClickRestartButton);
         
         
-    }
+    },
   
 //Goes back to main menu
   onClickRestartButton: function(){
