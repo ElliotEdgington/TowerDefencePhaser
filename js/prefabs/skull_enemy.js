@@ -18,3 +18,5 @@ Botan.SkullEnemy = function(game, x, y){
 
 Botan.SkullEnemy.prototype = Object.create(Botan.Enemy.prototype);
 Botan.SkullEnemy.prototype.constructor = Botan.SkullEnemy;
+
+

@@ -20,10 +20,13 @@ Botan.game.state.add('Boot', Botan.Boot);
 Botan.game.state.add('Preload', Botan.Preload);
 Botan.game.state.add('MainMenu', Botan.MainMenu);
 Botan.game.state.add('LevelSelect', Botan.LevelSelect);
+Botan.game.state.add('GameOver', Botan.GameOver);
 
 //Main Game state - may split into different states if different modes are added
 // i.e endless mode
 Botan.game.state.add('Game', Botan.Game);
+Botan.game.state.add('Level2', Botan.Level2);
+Botan.game.state.add('Level3', Botan.Level3);
 
 
 //

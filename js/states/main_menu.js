@@ -31,10 +31,11 @@ Botan.MainMenu.prototype = {
         //Audio
         this.music = this.game.add.audio('bg_music');
         this.music.play();
+        this.music.loop = true;
         
         
         //mute button
-        this.muteButton = this.game.add.button(740, 10, 'mute_button', this.MUTE, this);
+        this.muteButton = this.game.add.button(740, 10, 'mute_button', this.onClickMute, this);
         this.muteButton.inputEnabled = true;
         this.muteButton.fixedToCamera = true;
 
@@ -51,7 +52,7 @@ Botan.MainMenu.prototype = {
         this.game.state.start('LevelSelect');
     },
     
-    MUTE: function() {
+    onClickMute: function() {
         if(!this.game.sound.mute){
         this.game.sound.mute = true;
         this.muteButton = 'muteon_button';

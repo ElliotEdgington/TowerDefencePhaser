@@ -51,3 +51,5 @@ Botan.Bullet.prototype.setTarget = function(target){
 Botan.Bullet.prototype.setDirection = function(x, y){    
     this.direction = new Phaser.Point(x, y);
 };
+
+

@@ -81,7 +81,9 @@ Botan.Preload.prototype = {
         // Selection marker
         this.load.image('selection_spr', '../../assets/Towers/selection_marker.png');
 
-
+        //audio
+        this.load.audio('bg_music', '../../assets/bg_music.mp3');
+        this.load.audio('hit_aud', '../../assets/sound_effects/pumpkin_break_01.ogg');
         
         // temp assets
         this.load.image('temp_title','../../assets/menu_assets/titlescreen.png');

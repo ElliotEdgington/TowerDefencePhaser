@@ -32,6 +32,7 @@ Botan.Game.prototype = {
         
         this.map = this.game.add.tilemap('level1_tmap');
         this.map.addTilesetImage('Tileset', 'level_tset');
+       
         
         this.layer = this.map.createLayer('Ground');
         this.layer.resizeWorld();
@@ -89,14 +90,56 @@ Botan.Game.prototype = {
 
 //PAUSE button in progress
 
-//this.pauseButton = this.game.add.
-//this.pauseButton.inputEnabled = true;
+//this.pauseButton = this.game.add.button(740, 10, 'pause_button', this.onClickPause, this);
 //this.pauseButton.fixedToCamera = true;
+//this.pauseButton.inputEnabled = true;
 //this.pauseButton.events.onInputUp.add(function() {
   //  this.game.paused = true;
-    //this.pauseButton = 'play_button';
+//    this.pauseButton = 'play_button';
 //}, this);
 //this.game.input.onDown.add(function() {
   //  if(this.game.paused) this.game.paused = false;
     //this.pauseButton = 'pause_button';
 //}, this);
+
+
+
+//Pause 2.0 :( still havent figured out, delete probs
+
+//this.PauseGroup = game.addgroup();
+//this.pause.visible = false;
+
+//this.pauseButton= this.add.button (700,10, 'pause_button', onClickPause, this, 0, 0, 0);
+
+//onClickPause function:{
+    
+  //  game.paused = true;
+//}
+
+//this.input.onDown.add(unpause, this);
+
+//if (game.paused){
+ //   if ()
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
