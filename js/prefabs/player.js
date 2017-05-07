@@ -3,7 +3,7 @@
 var Botan = Botan || {};
 
 //vars for input keys
-var wKey, sKey, aKey, dKey;
+var wKey, sKey, aKey, dKey, testKey;
 var cursorKeys;
 
 Botan.Player = function (game) {
@@ -23,6 +23,12 @@ Botan.Player = function (game) {
     
     this.game.camera.follow(this);
     //input keys
+    testKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.Q);
+    testKey.onDown.add(function(){
+        this.game.add.existing(new Botan.TowerPlace(this.game));
+    }, this)
+    
+
     wKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.W);
     aKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.A);
     sKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.S);
@@ -48,8 +54,6 @@ Botan.Player.prototype.update = function (){
 };
 
 Botan.Player.prototype.input = function  (){ 
-    //mouse click fire
-    
     
     //keyboard movement
     // up down

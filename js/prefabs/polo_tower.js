@@ -2,7 +2,7 @@
 
 var Botan = Botan || {};
 
-Botan.PoloTower = function(game){
+Botan.PoloTower = function(game, x, y){
     var spr = 'polo_tower_spr';
     var x = 200;
     var y = 600;

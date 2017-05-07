@@ -80,6 +80,9 @@ Botan.Preload.prototype = {
         
         // Selection marker
         this.load.image('selection_spr', '../../assets/Towers/selection_marker.png');
+        
+        this.load.image('tower_place_spr', '../../assets/Towers/place_tower.png');
+
 
         //audio
         this.load.audio('bg_music', '../../assets/bg_music.mp3');

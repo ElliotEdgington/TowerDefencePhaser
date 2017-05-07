@@ -11,8 +11,10 @@ Botan.Game = function(){};
 Botan.Game.prototype = {
     
     
-    //save this for later to take parameters
-    init: function(){},
+    //When changing states, this takes in the map name to load the tilemap
+    init: function(map_name){
+        this.tilemap_name = map_name;
+    },
     
     //Loads any last bits and bobs, save for later
     preload: function(){
@@ -29,8 +31,7 @@ Botan.Game.prototype = {
         
         // Size of json file
         //this.game.world.setBounds(0, 0, 1920, 1920);
-        
-        this.map = this.game.add.tilemap('level1_tmap');
+        this.map = this.game.add.tilemap(this.tilemap_name);
         this.map.addTilesetImage('Tileset', 'level_tset');
        
         
@@ -60,15 +61,16 @@ Botan.Game.prototype = {
         // create groups 
         // groups are stored in the game object so all objects
         // can use them
+        this.tower_grp = this.game.add.group();
         this.tower_bullet_grp = this.game.add.group(); 
         this.enemy_grp = this.game.add.group();
         
         // create objects
         this.player_obj = this.game.add.existing(new Botan.Player(this));
 
-        this.testTower2 = this.game.add.existing(new Botan.CandyCornTower(this));
-        this.testTower3 = this.game.add.existing(new Botan.GumDropTower(this));
-        this.testTower4 = this.game.add.existing(new Botan.PoloTower(this));
+        //this.tower_grp.add(this.game.add.existing(new Botan.CandyCornTower(this, 200, 200)));
+        //this.tower_grp.add(this.game.add.existing(new Botan.GumDropTower(this, 100, 100)));
+        //this.tower_grp.add(this.game.add.existing(new Botan.PoloTower(this, 600, 600)));
                 
         
         this.enemy_grp.add(this.game.add.existing(new Botan.GhostEnemy(this, 400, 0)));

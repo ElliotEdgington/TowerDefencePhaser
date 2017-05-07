@@ -2,7 +2,7 @@
 
 var Botan = Botan || {};
 
-Botan.GumDropTower = function(game){
+Botan.GumDropTower = function(game, x, y){
     var spr = 'gumdrop_tower_spr';
     var x = 200;
     var y = 400;

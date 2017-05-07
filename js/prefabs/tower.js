@@ -9,7 +9,8 @@ Botan.Tower = function(game, x, y, spr_name){
     Phaser.Sprite.call(this, Botan.game, x, y, spr_name);
     this.game = game;
     this.anchor.setTo(0.5, 0.5);
-    
+    this.game.physics.enable(this, Phaser.Physics.ARCADE);
+
     //for onclick
     this.inputEnabled = true;
     this.events.onInputDown.add(this.clickListener, this);

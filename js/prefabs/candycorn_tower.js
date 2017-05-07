@@ -2,10 +2,8 @@
 
 var Botan = Botan || {};
 
-Botan.CandyCornTower = function(game){
+Botan.CandyCornTower = function(game, x, y){
     var spr = 'candycorn_tower_spr';
-    var x = 200;
-    var y = 200;
     Botan.Tower.call(this, game, x, y, spr);
     
     //tower animations
