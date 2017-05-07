@@ -25,10 +25,6 @@ Botan.Game.prototype = {
     //Uses all the game assets and prefabs to create the game.
     create: function(){
         
-        
-        // -- Maybe abrstact this into different js file --
-        // Load in tiled level from JSON file
-        
         // Size of json file
         //this.game.world.setBounds(0, 0, 1920, 1920);
         this.map = this.game.add.tilemap(this.tilemap_name);
@@ -77,6 +73,8 @@ Botan.Game.prototype = {
         this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy(this, 400, -100)));
         
         
+        //Game variables -----
+        this.gold = 0;
         
         //Start game timer
         this.game_timer = 0;
@@ -106,19 +104,17 @@ Botan.Game.prototype = {
 
 
 
-//Pause 2.0 :( still havent figured out, delete probs
+//Pause 2.0 try using this code instead ? https://phaser.io/examples/v2/misc/pause-menu look at dis.
 
-//this.PauseGroup = game.addgroup();
-//this.pause.visible = false;
 
 //this.pauseButton= this.add.button (700,10, 'pause_button', onClickPause, this, 0, 0, 0);
 
 //onClickPause function:{
     
-  //  game.paused = true;
+//  game.paused = true;
 //}
 
-//this.input.onDown.add(unpause, this);
+//this.input.onDown.add(unpause, self);
 
 //if (game.paused){
  //   if ()

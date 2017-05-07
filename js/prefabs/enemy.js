@@ -47,6 +47,7 @@ Botan.Enemy.prototype.update = function(){
     if(this.health <= 0){
         this.destroy();
         // add money gold here
+        this.game.gold += this.goldValue;
         // this.game.addGold(gold_value);
         // play animation or something?
     }
