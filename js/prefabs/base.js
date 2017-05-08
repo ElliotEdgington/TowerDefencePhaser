@@ -3,30 +3,32 @@
 var Botan = Botan || {};
 
 
-Boton.HomeBase = function (game) {
-    var sprite = '';
-    var x = 250;
-    var y = 200;
+Botan.HomeBase = function (game, x, y) {
+    var sprite = 'base_spr';
     Phaser.Sprite.call(this, Botan.game, x, y, sprite);
+    this.game = game;
+    this.anchor.setTo( 0.5, 0.6)
     
-    //Possible factors of base
-    this.defense = 100;
-    this.armour = 0;
+    //base stats
+    this.defence = 10;
     
 };
 
 
-Botan.HomeBase.prototype.remove_defence(){
-    //remove 1 from the defense
-    this.defense -= 1;
-    //if defense of base gets to 0 then gameover
-    if(this.defense <= 0){
-        this.destory();
-        //Destroyed animation if we have one
-        this.play('BOOOOOM');
+Botan.HomeBase.prototype = Object.create(Phaser.Sprite.prototype);
+Botan.HomeBase.prototype.constructor = Botan.HomeBase;
 
+Botan.HomeBase.prototype.removeDefence = function(){
+    //remove 1 from the defense
+    this.defence -= 1;
+    this.game.GUI_obj.defence_text.setText('Defence : ' + this.defence);
+    //if defense of base gets to 0 then gameover
+    if(this.defence <= 0){
+        //Destroyed animation if we have one
+        //this.play('BOOOOOM');
+        
         //Send to gameover
-        this.game.state.start('Game Over');
+        this.game.state.start('MainMenu');
 
     }
 };

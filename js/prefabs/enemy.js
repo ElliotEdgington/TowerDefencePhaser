@@ -4,7 +4,9 @@
 
 var Botan = Botan || {};
 
-Botan.Enemy = function(game, x, y, spr_name){
+Botan.Enemy = function(game, spr_name){
+    var x = game.nodes[0].x;
+    var y = game.nodes[0].y;
     Phaser.Sprite.call(this, Botan.game, x, y, spr_name);
     this.game = game;
     // Enabling systems
@@ -16,7 +18,7 @@ Botan.Enemy = function(game, x, y, spr_name){
     
     
     //setting default stats
-    this.health = 10;
+    this.hp = 10;
     this.speed = 1;
     this.gold_value = 100;
     
@@ -40,18 +42,25 @@ Botan.Enemy.prototype.update = function(){
     if(this.waypoint == this.game.nodes.length){
         this.destroy();
         // remove health 
-        // check for lose game :(
+        this.game.base_obj.removeDefence();
     }
     
-        //kill enemy when health = 0
-    if(this.health <= 0){
+
+
+};
+
+Botan.Enemy.prototype.removeHealth = function(damage){
+    this.hp -= damage;
+    if(this.hp <= 0){
         // add money gold here
         this.game.GUI_obj.addGold(this.gold_value);
         // play animation or something?
         this.exists = false;
+        this.game.enemy_grp.remove(this);
+        
+        this.game.WaveManager_obj.checkWave();
         this.destroy();
     }
-
 };
 
 

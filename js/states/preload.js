@@ -48,8 +48,9 @@ Botan.Preload.prototype = {
         this.load.spritesheet('candycorn_tower_spr','../../assets/towers/candycorn_tower.png', 128, 128, 8);
         this.load.spritesheet('polo_tower_spr','../../assets/towers/polo_tower.png', 128, 128, 7);
         this.load.spritesheet('gumdrop_tower_spr','../../assets/towers/gumdrop_tower.png', 128, 128, 7);
+        
+        this.load.image('base_spr', '../../assets/towers/gingerbread_house_base.png');
 
-        this.game.add.sprite((GAMEWIDTH/2), GAMEHEIGHT/2, 'load_spr');        
         // Bullets
         this.load.image('bullet_spr','../../assets/towers/bullet_img.png');
         this.load.image('candycorn_bullet_spr','../../assets/towers/candycorn_bullet.png');

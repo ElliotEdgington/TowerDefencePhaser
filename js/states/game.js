@@ -39,7 +39,7 @@ Botan.Game.prototype = {
 
         //getting nodes from layer in JSON file
         this.node_num = 0;
-        var num_of_nodes = 9;
+        var num_of_nodes = 20;
         while(this.node_num <= num_of_nodes){
             this.node_num++;
             this.map.forEach(function(tile){
@@ -59,31 +59,31 @@ Botan.Game.prototype = {
         this.enemy_grp = this.game.add.group();
         
         
-        //create GUI
-        this.GUI_obj = new Botan.GUIManager(this);
-        
         // create objects
         this.player_obj = this.game.add.existing(new Botan.Player(this));
+        this.base_obj = this.game.add.existing(new Botan.HomeBase(this, this.nodes[this.nodes.length-1].x,
+                                                                  this.nodes[this.nodes.length-1].y));
 
-        //this.tower_grp.add(this.game.add.existing(new Botan.CandyCornTower(this, 200, 200)));
-        //this.tower_grp.add(this.game.add.existing(new Botan.GumDropTower(this, 100, 100)));
-        //this.tower_grp.add(this.game.add.existing(new Botan.PoloTower(this, 600, 600)));
-                
         
-        this.enemy_grp.add(this.game.add.existing(new Botan.GhostEnemy(this, 400, 0)));
-        this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy(this, 400, -100)));
-//        this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy2(this, 400, -300)));
-//        this.enemy_grp.add(this.game.add.existing(new Botan.SkullEnemy3(this, 400, -500)));
+        //create Managers
+        this.GUI_obj = new Botan.GUIManager(this);
+        this.WaveManager_obj = new Botan.WaveManager(this);
         
         //Game variables -----
         this.gold = 0;
-        this.GUI_obj.addGold(700);
+        this.GUI_obj.addGold(400);
+        
+        this.wave = 0;
         
         //Start game timer
         this.game_timer = 0;
         Botan.game.time.events.loop(10, function(){
             this.game_timer++;
         }, this);
+        
+        
+        //start game
+        this.WaveManager_obj.nextWave();
     }
 };
 

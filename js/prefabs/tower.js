@@ -100,3 +100,8 @@ Botan.Tower.prototype.upgrade = function(){
     this.price *=2;
 };
 
+Botan.Tower.prototype.sell = function(){
+    this.game.GUI_obj.addGold(Math.round(this.price/2));
+    this.destroy();
+};
+

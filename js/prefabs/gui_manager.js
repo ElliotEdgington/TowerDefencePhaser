@@ -10,6 +10,7 @@ Botan.GUIManager = function(game){
     this.gold_style = { font: "40px Arial", fill: "#FFFFFF" };
     this.price_style = { font: "32px Arial", fill: "#FFFFFF" };
 
+    // -- Top GUI --
     
     //shows gold
     this.gold_obj = this.game.add.sprite(GAMEWIDTH - 200, 10, 'gold_spr');
@@ -18,6 +19,18 @@ Botan.GUIManager = function(game){
     
     this.gold_text = this.game.add.text(GAMEWIDTH - 120, 15, '000', this.gold_style);
     this.gold_text.fixedToCamera = true;
+    
+    //shows health -- needs sprite
+    this.defence_text = this.game.add.text(GAMEWIDTH - 200, 60, 'Defence : 10', this.price_style);
+    this.defence_text.fixedToCamera = true;
+    
+    //shows wave
+    this.wave_text = this.game.add.text(GAMEWIDTH - 200, 100, '000', this.price_style);
+    this.wave_text.fixedToCamera = true;
+
+    
+    
+    // -- Bottom GUI --
     
     // shop buttons
     var button_height = GAMEHEIGHT - 130;
@@ -46,6 +59,15 @@ Botan.GUIManager = function(game){
     //plus button to upgrade
     this.tower_upgrade_button = this.game.add.button(-500, -500, 'plus_button', this.upgradeTower, this);
     this.tower_upgrade_button.scale.setTo( 0.4, 0.4);
+    //sell button
+    this.tower_sell_button = this.game.add.button(-500, -500, 'cancel_button', function(){
+                                                                                this.selection.sell();
+                                                                                this.setSelection(null); }, this);
+    this.tower_sell_button.scale.setTo( 0.4, 0.4);
+    
+    this.selection_grp = this.game.add.group();
+    this.selection_grp.addMultiple([this.selection_obj,this.range_obj,this.tower_upgrade_price,
+                                   this.tower_gold_icon,this.tower_upgrade_button,this.tower_sell_button]);
 };
 
 Botan.GUIManager.prototype = Object.create(Botan.Tower.prototype);
@@ -89,24 +111,33 @@ Botan.GUIManager.prototype.addGold = function(value){
 
 //places marker around selected target
 Botan.GUIManager.prototype.setSelection = function(target){
-    //put selection target on tower
-    this.selection = target;
-    this.selection_obj.x = target.x;
-    this.selection_obj.y = target.y;
-    //show range of tower
-    this.range_obj.x = target.x;
-    this.range_obj.y = target.y;
-    this.range_obj.scale.setTo(target.range/50, target.range/50);
-    //show upgrade button and price
-    this.tower_upgrade_price.x = this.selection.x + 110;
-    this.tower_upgrade_price.y = this.selection.y;
-    this.tower_upgrade_price.setText(target.price);
-    //gold icon
-    this.tower_gold_icon.x = this.selection.x + 70;
-    this.tower_gold_icon.y = this.selection.y;
-    //upgrade button
-    this.tower_upgrade_button.x = this.selection.x + 100;
-    this.tower_upgrade_button.y = this.selection.y - 50;
+        this.selection = target;
+    
+    if(this.selection != null){
+        this.selection_grp.visible = true;
+        //put selection target on tower
+        this.selection_obj.x = target.x;
+        this.selection_obj.y = target.y;
+        //show range of tower
+        this.range_obj.x = target.x;
+        this.range_obj.y = target.y;
+        this.range_obj.scale.setTo(target.range/50, target.range/50);
+        //show upgrade button and price
+        this.tower_upgrade_price.x = this.selection.x + 110;
+        this.tower_upgrade_price.y = this.selection.y;
+        this.tower_upgrade_price.setText(target.price);
+        //gold icon
+        this.tower_gold_icon.x = this.selection.x + 70;
+        this.tower_gold_icon.y = this.selection.y;
+        //upgrade button
+        this.tower_upgrade_button.x = this.selection.x + 100;
+        this.tower_upgrade_button.y = this.selection.y - 50;
+        //sell button
+        this.tower_sell_button.x = this.selection.x + 100;
+        this.tower_sell_button.y = this.selection.y + 50;
+    }else{
+        this.selection_grp.visible = false;
+    };
 };
 
 

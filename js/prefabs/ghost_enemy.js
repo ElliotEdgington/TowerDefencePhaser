@@ -2,8 +2,8 @@
 
 var Botan = Botan || {};
 
-Botan.GhostEnemy = function(game, x, y){
-    Botan.Enemy.call(this, game, x, y, 'ghost_spr');
+Botan.GhostEnemy = function(game){
+    Botan.Enemy.call(this, game, 'ghost_spr');
     
     
     //enemy animations
@@ -11,13 +11,13 @@ Botan.GhostEnemy = function(game, x, y){
     this.animations.add('up', [ 4, 5, 6, 7],7,true);
     this.animations.add('right', [ 8, 9, 10 ,11],7,true);
     this.animations.add('left', [ 12, 13, 14, 15],7,true);
+    this.animations.play('down');
+
     
     //setting default stats
-    this.health = 10;
+    this.hp = 8;
     this.speed = 60;
     this.gold_value = 100;
-
-
     
 };
 
