@@ -56,14 +56,24 @@ Botan.Game.prototype = {
         // can use them
         this.tower_grp = this.game.add.group();
         this.tower_bullet_grp = this.game.add.group(); 
+        
         this.enemy_grp = this.game.add.group();
+        this.enemy_reference_grp = this.game.add.group();
         
         
         // create objects
         this.player_obj = this.game.add.existing(new Botan.Player(this));
         this.base_obj = this.game.add.existing(new Botan.HomeBase(this, this.nodes[this.nodes.length-1].x,
                                                                   this.nodes[this.nodes.length-1].y));
-
+        
+        //add references and kill them.
+        this.ghost_enemy_ref = this.game.add.existing(new Botan.GhostEnemy(this));
+        this.skull_enemy_ref = this.game.add.existing(new Botan.SkullEnemy(this));
+        this.skull_fast_enemy_ref = this.game.add.existing(new Botan.SkullEnemy_Fast(this));
+        this.skull_big_enemy_ref = this.game.add.existing(new Botan.SkullEnemy_Big(this));
+        this.enemy_reference_grp.addMultiple([this.ghost_enemy_ref,this.skull_big_enemy_ref,
+                                             this.skull_enemy_ref,this.skull_fast_enemy_ref]);
+        this.enemy_reference_grp.forEach(function(e){ e.kill(); }, this);
         
         //create Managers
         this.GUI_obj = new Botan.GUIManager(this);

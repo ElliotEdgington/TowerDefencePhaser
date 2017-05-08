@@ -9,7 +9,7 @@ Botan.WaveManager = function (game) {
     //delay between enemies (ms)
     this.enemy_delay = 1000;
     //waves be worth this much value
-    this.gold_value = 1000;
+    this.wave_gold_value = 500;
     //wave
     this.wave_grp = this.game.add.group();
 };
@@ -39,9 +39,10 @@ Botan.WaveManager.prototype.nextWave = function(){
                 this.wave_grp.addMultiple(this.wave5());
                 break;
         }
-    };
-    //waves after will prcedurally gen waves 
-    
+    }else{
+        //waves after will prcedurally gen waves 
+        this.wave_grp.addMultiple(this.genWave(this.gold_value));
+    }
     
     //kill everything in group! blerr
     this.wave_grp.forEach(function(e) { e.kill(); });
@@ -68,6 +69,22 @@ Botan.WaveManager.prototype.checkWave  = function(){
     if(this.game.enemy_grp.length <= 0){
         this.nextWave();
     }
+};
+
+
+
+Botan.WaveManager.prototype.genWave = function(value){
+    var ref = this.game.enemy_reference_grp;
+    var wave = [];
+    while(value >= 0){
+        var index = this.game.rnd.integerInRange(0, ref.length - 1);
+        var enemy = ref.getAt(index);
+        enemy.revive();
+        wave.push(this.game.add.existing(enemy));
+        value -= enemy.gold_value;
+    }
+    this.wave_gold_value *= 1.5;
+    return wave;
 };
 
 
