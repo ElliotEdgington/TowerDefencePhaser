@@ -4,15 +4,16 @@ var Botan = Botan || {};
 
 Botan.PoloTower = function(game, x, y){
     var spr = 'polo_tower_spr';
-    var x = 200;
-    var y = 600;
     Botan.Tower.call(this, game, x, y, spr);
     
     //tower animations
     this.animations.add('idle', [ 0, 1, 2, 3, 4, 5, 6, 7],8,true);
     
     //set properties for this tower
-     this.tower_price = 300;
+    this.price = 300;
+    this.range = 200;
+    this.tower_damage = 1;
+    this.fire_rate = 300;
 };
 
 Botan.PoloTower.prototype = Object.create(Botan.Tower.prototype);
@@ -25,7 +26,7 @@ Botan.PoloTower.prototype.update = function(){
     
     // fires bullet at intervals of the game timer
     // any firing logic goes here
-    this.fire_rate = 150;
+    
     if((this.game.game_timer % this.fire_rate) == 0){
         this.fire();
     }
@@ -39,13 +40,9 @@ Botan.PoloTower.prototype.fire = function(){
     //change its properties if they're wrong
     if(bullet){
         bullet.loadTexture('polo_bullet_spr');
-        bullet.damage = 1;
+        bullet.damage = this.tower_damage;
         bullet.scale.setTo(0.8);
-        
-        if(this.game.physics.arcade.overlap(bullet, bullet.target)){
-            //kill bullet
-            bullet.target.speed = 0.1;
-        }
+        bullet.slow = true;
     }
     
 };

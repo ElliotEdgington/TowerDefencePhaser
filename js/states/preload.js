@@ -79,31 +79,24 @@ Botan.Preload.prototype = {
         this.load.image('pause_button', '../../assets/pause_button.png');
         this.load.image('play_button', '../../assets/play_button.png');
         //Game GUI Buttons
-        this.load.image('play_button', '../../assets/buttons/candycorn_button.png');
-        this.load.image('play_button', '../../assets/buttons/gumdrop_button.png');
-        this.load.image('play_button', '../../assets/buttons/polo_button.png');
-        this.load.image('play_button', '../../assets/buttons/cancel_button.png');
-        this.load.image('play_button', '../../assets/buttons/buy_button.png');
-        this.load.image('play_button', '../../assets/buttons/shop_button.png');
-        this.load.image('play_button', '../../assets/coin.png');
+        //this.load.image('play_button', '../../assets/buttons/candycorn_button.png');
+        //this.load.image('play_button', '../../assets/buttons/gumdrop_button.png');
+        //this.load.image('play_button', '../../assets/buttons/polo_button.png');
+        //this.load.image('play_button', '../../assets/buttons/shop_button.png');
         
-        //Shop Buttons
-        this.load.image('play_button', '../../assets/buttons/cancel_button.png');
-        this.load.image('play_button', '../../assets/buttons/buy_button.png');
-        this.load.image('play_button', '../../assets/buttons/shop_button.png');
-        this.load.image('play_button', '../../assets/buttons/gumdrop_button.png');
-        this.load.image('play_button', '../../assets/buttons/candycorn_button.png');
-        this.load.image('play_button', '../../assets/buttons/polo_button.png');
-        
+        this.load.image('cancel_button', '../../assets/buttons/cancel_button.png');
+        this.load.image('buy_button', '../../assets/buttons/buy_button.png');
+        this.load.image('plus_button', '../../assets/buttons/plus_button.png');
+        this.load.image('gold_spr', '../../assets/coin.png');
         
         // Selection marker
         this.load.image('selection_spr', '../../assets/Towers/selection_marker.png');
-        
+        this.load.image('tower_range_spr', '../../assets/Towers/tower_range.png');
         this.load.image('tower_place_spr', '../../assets/Towers/place_tower.png');
 
 
         //audio
-        this.load.audio('bg_music', '../../assets/bg_music.mp3');
+        //this.load.audio('bg_music', '../../assets/bg_music.mp3');
         // audio
         this.load.audio('hit_aud', '../../assets/sound_effects/pumpkin_break_01.ogg');
         

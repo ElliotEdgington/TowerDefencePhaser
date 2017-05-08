@@ -1,12 +1,12 @@
 
 var Botan = Botan || {};
 
-Botan.TowerPlace = function(game){
+Botan.TowerPlace = function(game, name){
     Phaser.Sprite.call(this, Botan.game, 0, 0, 'tower_place_spr');
     this.game = game;
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
     this.anchor.setTo(0.5, 0.5);
-    console.log("cerated");
+    this.tower_name = name;
 };
 
 Botan.TowerPlace.prototype = Object.create(Phaser.Sprite.prototype);
@@ -33,7 +33,18 @@ Botan.TowerPlace.prototype.update = function(){
     
     // left-click confirm
     if(this.game.input.activePointer.leftButton.isDown && !this.collided){
-        this.game.tower_grp.add(this.game.add.existing(new Botan.CandyCornTower(this.game, this.x, this.y)));
+        switch(this.tower_name){
+            case 'candycorn':
+                this.game.tower_grp.add(this.game.add.existing(new Botan.CandyCornTower(this.game, this.x, this.y)));
+                break;
+            case 'polo':
+                this.game.tower_grp.add(this.game.add.existing(new Botan.PoloTower(this.game, this.x, this.y)));
+                break;
+            case 'gumdrop':
+                this.game.tower_grp.add(this.game.add.existing(new Botan.GumDropTower(this.game, this.x, this.y)));
+                break;
+        }
+        
         this.destroy();
     }
     // right-click cancel

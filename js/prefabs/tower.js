@@ -23,7 +23,9 @@ Botan.Tower = function(game, x, y, spr_name){
     this.target = null;
     this.range = 400;
     this.fire_rate = 100;
-    this.tower_price = 10;
+    this.price = 10;
+    this.tower_damage = 1;
+    this.level = 1;
 };
 
 Botan.Tower.prototype = Object.create(Phaser.Sprite.prototype);
@@ -52,6 +54,7 @@ Botan.Tower.prototype.createBullet = function(){
 
         //set non unique bullet properties
         bullet.setTarget(this.target);
+        bullet.slow = false;
         //return bullet to be used
         return bullet;
     }
@@ -85,7 +88,15 @@ Botan.Tower.prototype.getTarget = function(){
 };
 
 Botan.Tower.prototype.clickListener = function(){
-    this.game.player_obj.setSelection(this);
+    this.game.GUI_obj.setSelection(this);
     //bring up info about tower on GUI
+};
+
+//upgrade tower stats. pretty basic, just times all stats by something
+Botan.Tower.prototype.upgrade = function(){
+    this.range *= 1.5;
+    this.tower_damage *= 1.2;
+    this.fire_rate *= 0.8;
+    this.price *=2;
 };
 

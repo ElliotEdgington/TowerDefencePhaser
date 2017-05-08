@@ -17,6 +17,8 @@ Botan.Bullet = function(game, x, y, bullet_spr){
     this.damage = 1;
     this.speed = 150;
     
+    this.slow = false;
+    
     
 };
 
@@ -32,11 +34,13 @@ Botan.Bullet.prototype.update = function(){
         
         //check for collision with the target
         if(this.game.physics.arcade.overlap(this, this.target)){
-            //kill bullet
-            this.kill();
             //remove health from enemy
             this.target.health -= this.damage;
-              
+            if(this.slow){
+                this.target.slow(10, 1.2);
+            }
+            //kill bullet
+            this.kill();
         }
     }
     else if(this.direction){
@@ -44,6 +48,8 @@ Botan.Bullet.prototype.update = function(){
             
         }
         this.game.physics.arcade.moveToXY(this, this.direction.x, this.direction.y, this.speed);
+    }else{
+        this.kill();
     }
 };
 

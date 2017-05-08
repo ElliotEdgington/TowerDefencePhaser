@@ -31,7 +31,7 @@ Botan.Enemy.prototype.update = function(){
     
     //move toward next node
     var node = this.game.nodes[this.waypoint];
-    this.game.physics.arcade.moveToXY(this, node.x, node.y, 60);
+    this.game.physics.arcade.moveToXY(this, node.x, node.y, this.speed);
     this.game.physics.arcade.overlap(this, node, this.nextWaypoint, null, this);
     
     // destroying the enemy
@@ -45,11 +45,11 @@ Botan.Enemy.prototype.update = function(){
     
         //kill enemy when health = 0
     if(this.health <= 0){
-        this.destroy();
         // add money gold here
-        this.game.gold += this.goldValue;
-        // this.game.addGold(gold_value);
+        this.game.GUI_obj.addGold(this.gold_value);
         // play animation or something?
+        this.exists = false;
+        this.destroy();
     }
 
 };
@@ -57,4 +57,21 @@ Botan.Enemy.prototype.update = function(){
 
 Botan.Enemy.prototype.nextWaypoint = function(){
     this.waypoint += 1;
-}
+};
+
+//some status effects
+
+Botan.Enemy.prototype.slow = function(length, amount){
+    if(!this.slowed){
+        this.slowed = true;
+        this.speed *= 1/amount;
+        this.tint = 0x99ddff;
+        this.game.time.events.add(Phaser.Timer.SECOND * length, function(){
+                                    this.speed *= amount;
+                                    this.tint = 0xFFFFFF;
+                                    this.slowed = false;
+                                  }, this);
+    }
+};
+
+

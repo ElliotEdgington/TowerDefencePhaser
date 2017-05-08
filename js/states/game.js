@@ -1,7 +1,6 @@
 //  Game handles the actual game, this will display the level to the player and handle game logic.
 // specific game logic per object should be kept within the objects prototype.
 
-//yet to be decided whether to make seperate states per level or load this state with a bunch of parameters.
 var Botan = Botan || {};
 
 
@@ -26,7 +25,6 @@ Botan.Game.prototype = {
     create: function(){
         
         // Size of json file
-        //this.game.world.setBounds(0, 0, 1920, 1920);
         this.map = this.game.add.tilemap(this.tilemap_name);
         this.map.addTilesetImage('Tileset', 'level_tset');
        
@@ -60,6 +58,10 @@ Botan.Game.prototype = {
         this.tower_bullet_grp = this.game.add.group(); 
         this.enemy_grp = this.game.add.group();
         
+        
+        //create GUI
+        this.GUI_obj = new Botan.GUIManager(this);
+        
         // create objects
         this.player_obj = this.game.add.existing(new Botan.Player(this));
 
@@ -75,6 +77,7 @@ Botan.Game.prototype = {
         
         //Game variables -----
         this.gold = 0;
+        this.GUI_obj.addGold(700);
         
         //Start game timer
         this.game_timer = 0;

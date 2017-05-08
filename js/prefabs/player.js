@@ -29,12 +29,6 @@ Botan.Player = function (game) {
     this.enableBody = true;
     this.body.collideWorldBounds=true;
     
-    //input keys
-    testKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.Q);
-    testKey.onDown.add(function(){
-        this.game.add.existing(new Botan.TowerPlace(this.game));
-    }, this)
-    
 
     wKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.W);
     aKey = Botan.game.input.keyboard.addKey(Phaser.Keyboard.A);
@@ -44,11 +38,7 @@ Botan.Player = function (game) {
     //UP DOWN LEFT RIGHT Keys in an object
     cursorKeys = Botan.game.input.keyboard.createCursorKeys();
     
-    
-    //for selection of towers starts offscreen
-    this.selection_obj = this.game.add.sprite(-500, -500, 'selection_spr');
-    this.selection_obj.anchor.setTo(0.5, 0.5);
-    this.selection = null;
+
     //set variables for player
     this.speed = 400;
 };
@@ -97,12 +87,6 @@ Botan.Player.prototype.input = function  (){
         this.body.velocity.x = 0;
         
     }
-};
-
-Botan.Player.prototype.setSelection = function(target){
-    this.selection = target;
-    this.selection_obj.x = target.x;
-    this.selection_obj.y = target.y;
 };
 
 Botan.Player.prototype.fire = function(){

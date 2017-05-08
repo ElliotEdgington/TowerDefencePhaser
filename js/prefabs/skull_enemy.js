@@ -10,8 +10,8 @@ Botan.SkullEnemy = function(game, x, y){
     this.animations.play('move');
     
     //setting default stats
-    this.health = 15;
-    this.speed = 1;
+    this.health = 20;
+    this.speed = 40;
     this.gold_value = 100;
     this.scale.setTo(0.8);
 
