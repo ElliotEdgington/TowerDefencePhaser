@@ -1,5 +1,7 @@
-// Slowing tower
-
+/*
+ * A Tower that slows the enemies it hits for a few seconds, this 
+ * has low range and low damage.
+ */
 var Botan = Botan || {};
 
 Botan.PoloTower = function(game, x, y){

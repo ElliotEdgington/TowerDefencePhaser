@@ -1,4 +1,7 @@
-//Main base the Enemies could gravivate towards
+/*
+ * A base class to contain the amount of health the player has left
+ * and to show the gingerbread house sprite at the end of the level.
+ */
 
 var Botan = Botan || {};
 
@@ -24,11 +27,9 @@ Botan.HomeBase.prototype.removeDefence = function(){
     this.game.GUI_obj.defence_text.setText('Defence : ' + this.defence);
     //if defense of base gets to 0 then gameover
     if(this.defence <= 0){
-        //Destroyed animation if we have one
-        //this.play('BOOOOOM');
         
         //Send to gameover
-        this.game.state.start('MainMenu');
+        this.game.state.start('GameOver');
 
     }
 };

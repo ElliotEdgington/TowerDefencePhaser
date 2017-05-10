@@ -1,5 +1,7 @@
-// An object for each tower to inherit off, this will hold behaviours
-// that exist bewtween all towers
+/*
+ * All towers inherit behaviours off this class. It contains deefault stats
+ * and non unique traits for each tower.
+ */
 
 // -- DO NOT COPY PASTA INHERIT FROM THIS PLEASE --
 
@@ -16,7 +18,7 @@ Botan.Tower = function(game, x, y, spr_name){
     this.events.onInputDown.add(this.clickListener, this);
     //stores enemies in range of fire
     this.in_range = [];
-    this.AI = 1;
+    this.AI = 0;
     
     // default properties -- All these properties can be changed per tower basis 
     // in the other tower files.
@@ -32,9 +34,11 @@ Botan.Tower.prototype = Object.create(Phaser.Sprite.prototype);
 Botan.Tower.prototype.constructor = Botan.Tower; 
 
 
-// checks if there are any dead bullets that can be revived
-// if not creates a new bullet.
-// Recycling!
+/*
+ * Checks for dead bullets in the bullet group and then
+ * revives them if so. If there are no dead bullets left
+ * this function will create one.
+ */
 Botan.Tower.prototype.createBullet = function(){
     this.getTarget();
     if(this.target){
@@ -60,7 +64,14 @@ Botan.Tower.prototype.createBullet = function(){
     }
 };
 
-//gets target using basic AI that player can change.
+
+
+/*
+ * Makes a list of all the enemies in range of the tower
+ * then performs a small algorithm to determine what 
+ * one to target based on what the player has selected the
+ * tower to do.
+ */
 Botan.Tower.prototype.getTarget = function(){
     this.in_range = [];
     //get array of enemies in range of tower.
@@ -76,29 +87,49 @@ Botan.Tower.prototype.getTarget = function(){
     else
         switch(this.AI){
             // any enemy
-            case 1:
+            case 0:
                 this.target = this.in_range[0];
                 break;
             // find enemy in range with highest health
-            case 2:
+            case 1:
+                this.target = this.in_range[0];
+                this.in_range.forEach(function(e){
+                    if(this.target.health < e.health)
+                        this.target = e;
+                },this);
                 break;
-            case 3:
+            case 2:
+                this.target = this.in_range[0];
+                this.in_range.forEach(function(e){
+                    if(this.target.speed < e.speed)
+                        this.target = e;
+                },this);
                 break;
         }
 };
+
+/*
+ * Onclick listener for selection
+ */
 
 Botan.Tower.prototype.clickListener = function(){
     this.game.GUI_obj.setSelection(this);
     //bring up info about tower on GUI
 };
 
-//upgrade tower stats. pretty basic, just times all stats by something
+/*
+ * Basic upgrade multiplications
+ */
 Botan.Tower.prototype.upgrade = function(){
     this.range *= 1.5;
     this.tower_damage *= 1.2;
     this.fire_rate *= 0.8;
     this.price *=2;
 };
+
+/*
+ * Tower is sold for half the price the player has spent on it.
+ */
 
 Botan.Tower.prototype.sell = function(){
     this.game.GUI_obj.addGold(Math.round(this.price/2));

@@ -1,4 +1,7 @@
-// High Damage slow tower
+/*
+ * A big damage tower that fires at a very slow pace with high range
+ * this inherits off Tower.js and gets some of its behaviour from there
+ */
 
 var Botan = Botan || {};
 
@@ -12,7 +15,7 @@ Botan.GumDropTower = function(game, x, y){
     //create unique properties for the tower.
     this.tower_damage = 5;
     this.range = 500;
-    this.fire_rate = 600;
+    this.fire_rate = 300;
     this.price = 300;
 };
 

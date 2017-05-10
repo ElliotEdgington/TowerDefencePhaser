@@ -1,5 +1,7 @@
-// an invisible sprite that uses collision detection to act as a waypoint
-
+/*
+ * An invisible sprite object that are used for waypoints
+ * that enemy NPC follow.
+ */
 var Botan = Botan || {};
 
 Botan.Waypoint = function(game, x, y){

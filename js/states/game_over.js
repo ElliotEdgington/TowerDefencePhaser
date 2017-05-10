@@ -4,29 +4,21 @@ Botan.GameOver = function() {}
 
 Botan.GameOver.prototype = {
     
-    preload:function(){
+    init: function(waves){
+        this.waves = waves;
+    },
+    
+    preload: function(){
         console.log("Started GameOver");
-    }
-},
+    },
     
     create: function(){
-        
-        //Need to add more when assets are created
-        this.background = this.game.add.tileSprite(0, 0, 800, 600, '');
-        this.restartLevelButton = this.game.add.button(100, 100, '', this.onClickRestartLevelButton);
-        this.restartButton = this.game.add.button(100, 200, '', this.onClickRestartButton);
-        
-        
+        this.game.add.text(GAMEWIDTH/2, GAMEHEIGHT/2, "You Lasted :\n" + this.waves +  " waves!");
+        this.restartButton = this.game.add.button(GAMEWIDTH/2, GAMEHEIGHT - 200, 'button', this.onClickRestartButton);
     },
   
-//Goes back to main menu
-  onClickRestartButton: function(){
+    onClickRestartButton: function(){
         console.log("clicked");
         this.game.state.start('MainMenu');
-    },
-        
-//Plays back to Level1
- onClickRestartLevelButton: function(){
-        console.log("clicked");
-        this.game.state.start('Game');
-    },
+    }
+};

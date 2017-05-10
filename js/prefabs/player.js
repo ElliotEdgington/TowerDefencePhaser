@@ -1,5 +1,8 @@
-// Player holds the necessary information to create the player object.
-// It handles all the keyboard events for the player in the update fucntion.
+/*
+ * Player is the object that the user interacts with,
+ * it can be moved in eight directions and contains
+ * most of the input checks for the game.
+ */
 var Botan = Botan || {};
 
 //vars for input keys
@@ -17,9 +20,6 @@ Botan.Player = function (game) {
     this.animations.add('up', [ 4, 5, 6, 7], 7, true);
     this.animations.add('right', [ 8, 9, 10, 11], 7, true);
     this.animations.add('left', [ 12, 13, 14, 15], 7, true);
-    
-    //player properties
-    this.gold = 0;
     
     //activate systems and edit sprite info.
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
@@ -46,16 +46,23 @@ Botan.Player = function (game) {
 Botan.Player.prototype = Object.create(Phaser.Sprite.prototype);
 Botan.Player.prototype.constructor = Botan.Player;
 
+
+/*
+* More behaviours were planned for the player which is why
+* the input is abstracted into another function
+*/
+
 Botan.Player.prototype.update = function (){
     this.input();
 };
 
+/*
+ * This handles all the user input and moves the
+ * player according to what the user presses.
+ * The WASD keys and the arrow keys are supported.
+ */
+
 Botan.Player.prototype.input = function  (){ 
-    //mouse click fire
-    if (this.game.input.activePointer.isDown)
-    {
-        Botan.Player.prototype.fire();
-    }
     
     //keyboard movement
     // up down
@@ -87,8 +94,4 @@ Botan.Player.prototype.input = function  (){
         this.body.velocity.x = 0;
         
     }
-};
-
-Botan.Player.prototype.fire = function(){
-    
 };

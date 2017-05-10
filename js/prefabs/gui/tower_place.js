@@ -1,4 +1,7 @@
-
+/*
+ * This class serves as a collision detection system to make sure that the 
+ * player doesn't place towers ontop of the player or other towers.
+ */
 var Botan = Botan || {};
 
 Botan.TowerPlace = function(game, name){
@@ -12,6 +15,15 @@ Botan.TowerPlace = function(game, name){
 Botan.TowerPlace.prototype = Object.create(Phaser.Sprite.prototype);
 Botan.TowerPlace.prototype.constructor = Botan.TowerPlace; 
 
+
+/*
+ * The update method in this class moves the sprite along with the mouse pointer
+ * then checks for collision with the player or other towers.
+ * if the placement marker is colliding it will tint red, otherwise it will
+ * tint green.
+ * the player left clicking will place a tower in the selected position, or 
+ * right clicking will cancel it.
+ */
 
 Botan.TowerPlace.prototype.update = function(){
     // have the placement follow the mouse around
@@ -49,6 +61,7 @@ Botan.TowerPlace.prototype.update = function(){
     }
     // right-click cancel
     else if(this.game.input.activePointer.rightButton.isDown){
+        this.game.GUI_obj.addGold(100);
         this.destroy();
     }
     

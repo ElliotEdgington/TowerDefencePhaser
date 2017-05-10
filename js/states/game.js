@@ -1,4 +1,4 @@
-//  Game handles the actual game, this will display the level to the player and handle game logic.
+// Game handles the actual game, this will display the level to the player and handle game logic.
 // specific game logic per object should be kept within the objects prototype.
 
 var Botan = Botan || {};
@@ -8,7 +8,6 @@ Botan.Game = function(){};
 
 
 Botan.Game.prototype = {
-    
     
     //When changing states, this takes in the map name to load the tilemap
     init: function(map_name){
@@ -71,8 +70,10 @@ Botan.Game.prototype = {
         this.skull_enemy_ref = this.game.add.existing(new Botan.SkullEnemy(this));
         this.skull_fast_enemy_ref = this.game.add.existing(new Botan.SkullEnemy_Fast(this));
         this.skull_big_enemy_ref = this.game.add.existing(new Botan.SkullEnemy_Big(this));
+        this.skull_boss_enemy_ref = this.game.add.existing(new Botan.SkullEnemy_Boss(this));
         this.enemy_reference_grp.addMultiple([this.ghost_enemy_ref,this.skull_big_enemy_ref,
-                                             this.skull_enemy_ref,this.skull_fast_enemy_ref]);
+                                             this.skull_enemy_ref,this.skull_fast_enemy_ref,
+                                             this.skull_boss_enemy_ref]);
         this.enemy_reference_grp.forEach(function(e){ e.kill(); }, this);
         
         //create Managers
@@ -81,7 +82,7 @@ Botan.Game.prototype = {
         
         //Game variables -----
         this.gold = 0;
-        this.GUI_obj.addGold(400);
+        this.GUI_obj.addGold(300);
         
         this.wave = 0;
         
@@ -96,43 +97,6 @@ Botan.Game.prototype = {
         this.WaveManager_obj.nextWave();
     }
 };
-
-
-
-
-
-//PAUSE button in progress
-
-//this.pauseButton = this.game.add.button(740, 10, 'pause_button', this.onClickPause, this);
-//this.pauseButton.fixedToCamera = true;
-//this.pauseButton.inputEnabled = true;
-//this.pauseButton.events.onInputUp.add(function() {
-  //  this.game.paused = true;
-//    this.pauseButton = 'play_button';
-//}, this);
-//this.game.input.onDown.add(function() {
-  //  if(this.game.paused) this.game.paused = false;
-    //this.pauseButton = 'pause_button';
-//}, this);
-
-
-
-//Pause 2.0 try using this code instead ? https://phaser.io/examples/v2/misc/pause-menu look at dis.
-
-
-//this.pauseButton= this.add.button (700,10, 'pause_button', onClickPause, this, 0, 0, 0);
-
-//onClickPause function:{
-    
-//  game.paused = true;
-//}
-
-//this.input.onDown.add(unpause, self);
-
-//if (game.paused){
- //   if ()
-//}
-
 
 
 

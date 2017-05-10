@@ -1,6 +1,6 @@
 // Boot handles scaling and anything to do with the screen,
 // Also loads assets for the Loading screen. 
-// Starts any plugins i.e physics/A* etc.
+// Starts any plugins i.e physics etc.
 
 var Botan = Botan || {};
 
