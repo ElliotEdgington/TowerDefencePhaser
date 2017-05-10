@@ -24,8 +24,6 @@ Botan.MainMenu.prototype = {
         this.background = this.game.add.tileSprite(0, 0, 800, 600, 'menu_bg');
         this.playButton = this.game.add.button(160, 500, 'button', this.onClickPlayButton, this);
         this.game.add.sprite(70, 295, 'title');
-        this.game.add.sprite(610, 220, 'temp_ghost');
-        this.game.add.audio('bg_temp');
         
 
         //Audio

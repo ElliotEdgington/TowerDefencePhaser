@@ -1,1 +1,3 @@
 --EDIT THIS WITH LICENSES IF WE USE TEXTURES FROM ELSEWHERE--
+
+bg_music.mp3 by HorrorPen - https://opengameart.org/content/loop-house-in-a-forest - CC-BY 3.0
